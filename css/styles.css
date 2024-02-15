@@ -1,0 +1,156 @@
+
+body,input,p{
+
+	margin: 0;
+	padding: 0;
+
+}
+
+
+body{
+    color :white;
+	background: #181a20;
+	height: 100vh;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+section{
+
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	font-weight : bold;
+	margin-top: -50px;
+}
+
+.label{
+  margin-top: 20px;
+  margin-bottom:5px
+}
+
+input, select{
+    outline: none;
+	border: 2px solid #474d57;
+	padding: 15px 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-weight: bold;
+	background: #181a20;
+	color : white;
+}
+
+input:hover{
+    border: 2px solid #fcd535;
+}
+
+.box__boxButton{
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 20px 0px;
+}
+
+.box__boxButton .button{
+
+	background:#fcd535;
+	width: 100%;
+	border :none;
+	padding: 15px 0px;
+	font-size: 18px;
+	border-radius: 10px;
+	color : black;
+	font-weight: 200;
+	
+	
+}
+
+.modalContent{
+
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+	background: black;
+	opacity: 0.5;
+	display: none;
+
+}
+
+.modal{
+  
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   color: white;
+   width :200px;
+   height:200px;
+   background: #181a20;
+   border-radius: 10px;
+   padding: 10px;
+   font-family: 'Lato', sans-serif;
+   display: none;
+
+}
+.ContentBtnClose{
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+.ContentBtnSend{
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 100%
+}
+
+.button{
+
+  background:#fcd535;
+	width: 80%;
+	border :none;
+	padding: 10px 0px;
+	font-size: 18px;
+	border-radius: 10px;
+	color : black;
+	font-weight: 200;
+
+}
+
+.space{
+
+  margin-top: 20px
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, .1);
+  border-radius: 50%;
+  border-top-color: #fcd535;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media(max-width: 400px){
+
+	section{
+		width: 100%;
+		padding : 0 10px;
+	}
+
+
+	.box__boxButton .button{
+
+		font-weight: bold;
+	}
+}

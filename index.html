@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<title>Internet por fichas</title>
+</head>
+<body>
+
+
+<section>
+	<h1>Copra de Ficha Wifi</h1>
+    <form>
+	<p class="label">Duracion</p>
+	<select id="time">
+		<option></option>
+		<option>30 minutos</option>
+		<option>1 hora</option>
+		<option>24 horas</option>
+	</select>
+	<h2>Pago</h2>
+	<p class="label">Banco</p>
+	<select>
+		<option>Banco de venezuela</option>
+	</select>
+	<p class="label">Cedula</p>
+	<input type="number" inputmode="numeric" name="" value="" id="cedula">
+	<div class="box__boxButton">
+		<p>Monto a pagar : <span id="monto" style="color:#fcd535; "></span></p>
+		<input name="" type="submit" class="button" value="Enviar" id="boton">
+		<div style="display: none;"class="spinner" id="spinner"></div>
+	</div>
+    </form>
+</section>
+<div class="modalContent" id="modalContainer">
+</div>
+<div class="modal" id="modal">
+	<div class="ContentBtnClose"><i class="material-icons" id="close">close</i>
+</div>
+	<p class="space">Inserte el codigo enviado al 04141888842</p>
+	<input class="space" type="number" inputmode="numeric" name="">
+	<div class="ContentBtnSend"><button class="button">enviar</button></div>
+	
+</div>
+
+<script src="js/funcion.js" type="text/javascript"></script>
+
+</body>
+</html>
