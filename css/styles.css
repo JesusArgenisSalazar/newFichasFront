@@ -6,6 +6,10 @@ body,input,p{
 
 }
 
+h1{
+	font-size: 35px
+}
+
 
 body{
     color :white;
@@ -14,6 +18,7 @@ body{
 	display:flex;
 	justify-content: center;
 	align-items: center;
+	overflow: hidden;
 }
 
 
@@ -25,20 +30,58 @@ section{
 	margin-top: -50px;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+
+}
+
 .label{
   margin-top: 20px;
   margin-bottom:5px
+  font-weight: bold;
+  font-size: 20px
 }
 
-input, select{
+.label2{
+  font-size: 15px;
+  margin-top: 15px;
+  margin-bottom:5px;
+
+}
+
+.cardPagoMovil{
+  
+}
+
+.textFile{
     outline: none;
 	border: 2px solid #474d57;
+	border-radius: 10px;
 	padding: 15px 10px;
 	width: 100%;
 	box-sizing: border-box;
 	font-weight: bold;
 	background: #181a20;
 	color : white;
+	font-size: 15px
+}
+
+/*option{
+  font-weight: bold;
+  padding:5px;
+}
+*/
+
+option{
+
+	font-weight: bold;
+	padding: 15px;
+}
+select option:hover{
+	background-color: #fcd535;
+	color: white
 }
 
 input:hover{
@@ -58,7 +101,7 @@ input:hover{
 	background:#fcd535;
 	width: 100%;
 	border :none;
-	padding: 15px 0px;
+	padding: 19px 0px;
 	font-size: 18px;
 	border-radius: 10px;
 	color : black;
@@ -82,23 +125,29 @@ input:hover{
 .modal{
   
    position: absolute;
-   display: flex;
-   flex-direction: column;
+   display: grid;
+   grid-template-rows:25px 90px 85px;
+   grid-template-columns: 1fr; 
    color: white;
    width :200px;
    height:200px;
    background: #181a20;
    border-radius: 10px;
-   padding: 10px;
+   padding:5px;
    font-family: 'Lato', sans-serif;
    display: none;
 
+}
+
+.contentResultModal{
+  
 }
 .ContentBtnClose{
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
 }
+
 
 .ContentBtnSend{
 	display: flex;
@@ -120,9 +169,31 @@ input:hover{
 
 }
 
-.space{
+.popup{
+	position: absolute;
+	bottom: -50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+    background:red;
+	width:250px;
+	border :none;
+	padding: 10px 0px;
+	font-size: 18px;
+	border-radius: 10px;
+	font-weight: 200;
+}
 
-  margin-top: 20px
+.animacion-activa{
+    animation: errorAnimationMessage 6s linear;
+	animation-fill-mode: forwards;
+}
+
+.popup__text{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .spinner {
@@ -131,13 +202,32 @@ input:hover{
   border-top-color: #fcd535;
   width: 40px;
   height: 40px;
-  animation: spin 1s linear infinite;
+  animation: spin 2s linear infinite;
   margin: auto;
 }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@keyframes errorAnimationMessage {
+  0% {
+    bottom: -50px;
+  }
+  
+  20%{
+    bottom: 10px;
+  }
+
+  80%{
+    bottom: 10px;
+  }
+  
+  100% {
+   
+    bottom: -50px;
+  }
 }
 
 @media(max-width: 400px){
