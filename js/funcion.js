@@ -57,12 +57,13 @@ boton.addEventListener("click",(event)=>{
    if(time.value == "" || referencia.value == ""){
    	  alert("debe llenar todos los campos")
    }else{
-      modal.style.display = "grid";
-      modalContainer.style.display = "flex";
-      spinnerModal.style.display = "inline-block"
-      textModal.innerHTML = "Por favor, espere a que su pago sea verificado. El tiempo estimado es de 15 segundos."
-      btnClose.style.visibility = "hidden";
-    
+
+        modal.style.display = "grid";
+        modalContainer.style.display = "flex";
+        spinnerModal.style.display = "inline-block"
+        textModal.innerHTML = "Por favor, espere a que su pago sea verificado. El tiempo estimado es de 15 segundos."
+        btnClose.style.visibility = "hidden";
+
       
       popup.classList.remove('animacion-activa');
 
@@ -105,18 +106,21 @@ boton.addEventListener("click",(event)=>{
          
        }).catch(error => {
            console.log(error.message);
+           setTimeout(function() {
+
+             if(error.message == "Failed to fetch" || error.message == "Error:Failed to fetch"){
+               modal.style.display = "none";
+               modalContainer.style.display = "none"; 
+               popupText.textContent = "Sin conexión"; 
+               popup.classList.add('animacion-activa');      
+             }else{
+               modal.style.display = "none";
+               modalContainer.style.display = "none"; 
+               popupText.textContent = "Error desconocido"; 
+               popup.classList.add('animacion-activa');  
+             }
+           }, 1500);
            
-           if(error.message == "Failed to fetch" || error.message == "Error:Failed to fetch"){
-             modal.style.display = "none";
-             modalContainer.style.display = "none"; 
-             popupText.textContent = "Sin conexión"; 
-             popup.classList.add('animacion-activa');      
-           }else{
-             modal.style.display = "none";
-             modalContainer.style.display = "none"; 
-             popupText.textContent = "Error desconocido"; 
-             popup.classList.add('animacion-activa');  
-           }
 
        });
      }
