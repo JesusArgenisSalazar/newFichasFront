@@ -91,7 +91,7 @@ boton.addEventListener("click",(event)=>{
           spinnerModal.style.display = "none"
           textModal.innerHTML = "El sistema tardo demasiado en responder intente nuevamente o contacte a soporte."
          
-         }else if(data.errorMessage == "Referencia no válida" || data.errorMessage == "Referencia usada" || data.errorMessage == "Monto pagado insuficiente"){
+         }else if(data.errorMessage == "Referencia no válida" || data.errorMessage == "Referencia usada" || data.errorMessage == "Monto insuficiente"){
           modal.style.display = "none";
           modalContainer.style.display = "none"; 
           popupText.textContent = data.errorMessage; 
