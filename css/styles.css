@@ -1,13 +1,13 @@
 
-body,input,p{
-
-	margin: 0;
-	padding: 0;
-
+body,input,p,h1{
+  margin: 0;
+  padding: 0;
 }
 
 h1{
-	font-size: 35px
+	font-size: 35px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 
@@ -23,11 +23,10 @@ body{
 
 
 section{
-
 	font-family: 'Lato', sans-serif;
 	font-size: 18px;
 	font-weight : bold;
-	margin-top: -50px;
+	margin-top: -70px;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -68,11 +67,6 @@ input[type=number]::-webkit-outer-spin-button {
 	font-size: 15px
 }
 
-/*option{
-  font-weight: bold;
-  padding:5px;
-}
-*/
 
 option{
 

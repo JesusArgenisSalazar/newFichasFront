@@ -17,7 +17,6 @@ let popupText = document.querySelector("#textError");
 
 
  window.onbeforeunload = function(event) {
-  console.log("me ejecuto");
   event.returnValue = "¿Estás seguro de que deseas abandonar esta página?";
 };
 
@@ -28,7 +27,6 @@ referencia.addEventListener("keypress",(event)=>{
    
    
   if(referencia.value.length >= 20){
-    console.log(referencia.value);
     event.preventDefault();
   }
   
@@ -59,32 +57,17 @@ boton.addEventListener("click",(event)=>{
    if(time.value == "" || referencia.value == ""){
    	  alert("debe llenar todos los campos")
    }else{
-
-       //codigo al backend
-
-       spinner.style.display = "inline-block"
-       boton.style.display = "none"
-   	   console.log(`referencia ${referencia.value} monto ${monto.textContent}`)
-
-   	  function myFunction() {
-  
-   	   	 spinner.style.display = "none"
-         boton.style.display = "inline-block"
-         modal.style.display = "grid";
-         modalContainer.style.display = "flex";
-         spinnerModal.style.display = "inline-block"
-         textModal.innerHTML = "Por favor, espere a que su pago sea verificado. El tiempo estimado es de 15 segundos."
-         btnClose.style.visibility = "hidden";
-         clearInterval(intervalId); // Detener el intervalo después de la primera repetición
-      }
-
+      modal.style.display = "grid";
+      modalContainer.style.display = "flex";
+      spinnerModal.style.display = "inline-block"
+      textModal.innerHTML = "Por favor, espere a que su pago sea verificado. El tiempo estimado es de 15 segundos."
+      btnClose.style.visibility = "hidden";
     
-     let intervalId = setInterval(myFunction, 2000);
       
-     popup.classList.remove('animacion-activa');
+      popup.classList.remove('animacion-activa');
 
      //peticion a la api
-       fetch('https://apibvc-production.up.railway.app/pago', {
+     fetch('https://apibvc-production.up.railway.app/pago', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json'
@@ -113,10 +96,28 @@ boton.addEventListener("click",(event)=>{
           popupText.textContent = data.errorMessage; 
           popup.classList.add('animacion-activa');
 
+         }else if(data.errorMessage.slice(0,8) == "net::ERR"){
+           modal.style.display = "none";
+           modalContainer.style.display = "none"; 
+           popupText.textContent = "Sin conexión"; 
+           popup.classList.add('animacion-activa');
          }
          
        }).catch(error => {
-         console.log('Error:' + error.message);
+           console.log(error.message);
+           
+           if(error.message == "Failed to fetch"){
+             modal.style.display = "none";
+             modalContainer.style.display = "none"; 
+             popupText.textContent = "Sin conexión"; 
+             popup.classList.add('animacion-activa');      
+           }else{
+             modal.style.display = "none";
+             modalContainer.style.display = "none"; 
+             popupText.textContent = "Error desconocido"; 
+             popup.classList.add('animacion-activa');  
+           }
+
        });
      }
 
