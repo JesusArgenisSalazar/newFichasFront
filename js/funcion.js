@@ -14,6 +14,7 @@ let textModal = document.getElementById("textModal")
 let succedResult = document.getElementById("succedResult");
 let popup = document.querySelector(".popup");
 let popupText = document.querySelector("#textError"); 
+let support = document.getElementById("support");
 
 
  window.onbeforeunload = function(event) {
@@ -55,7 +56,9 @@ boton.addEventListener("click",(event)=>{
    event.preventDefault();
 
    if(time.value == "" || referencia.value == ""){
-   	  alert("debe llenar todos los campos")
+   	  alert("Debe llenar todos los campos")
+   }else if(referencia.value.length < 4){
+      alert("La referencia debe tener al menos 4 dígitos");
    }else{
 
         modal.style.display = "grid";
@@ -63,12 +66,13 @@ boton.addEventListener("click",(event)=>{
         spinnerModal.style.display = "inline-block"
         textModal.innerHTML = "Por favor, espere a que su pago sea verificado. El tiempo estimado es de 15 segundos."
         btnClose.style.visibility = "hidden";
+        support.style.display = "none";
 
       
       popup.classList.remove('animacion-activa');
 
      //peticion a la api
-     fetch('https://apibvc-production.up.railway.app/pago', {
+     fetch('http://localhost:4000/pago', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json'
@@ -90,7 +94,7 @@ boton.addEventListener("click",(event)=>{
           btnClose.style.visibility = "visible";
           spinnerModal.style.display = "none"
           textModal.innerHTML = "El sistema tardo demasiado en responder intente nuevamente o contacte a soporte."
-         
+          support.style.display = "block";
          }else if(data.errorMessage == "Referencia no válida" || data.errorMessage == "Referencia usada" || data.errorMessage == "Monto insuficiente"){
           modal.style.display = "none";
           modalContainer.style.display = "none"; 

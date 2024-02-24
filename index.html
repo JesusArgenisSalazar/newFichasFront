@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<title>Internet por fichas</title>
@@ -49,20 +50,24 @@
 	<p class="text" id="textModal" style="margin-top: 5px; text-align: center; font-weight: bold;">Por favor, espere a que su pago sea verificado. El tiempo estimado es de 15 segundos.</p>
 	<div class="spinner" id="spinnerModal"></div>
 	<div class="contentResultModal">
+	<div style="display: none" id="support"><span class="material-symbols-outlined">headset_mic</span>Soporte</div>
     <p id="succedResult" style="display:none; text-align:center">Su pin de acceso es:
     <span style="color:#fcd535;font-weight:bold; font-size: 20px">jk84</span>
     </p>
     </div>
-	
+
 </div>
 <div class="popup">
-	
 <p class="popup__text"><span class="material-symbols-outlined">
 error
 </span style="padding-right:5px"><span id="textError">Error</span></p>
 </div>
 
+<button class="button__support">
+	<span class="material-symbols-outlined">headset_mic</span>soporte
+</button>
 <script src="js/funcion.js" type="text/javascript"></script>
-
+	
+</div>
 </body>
 </html>

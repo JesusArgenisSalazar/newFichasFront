@@ -50,9 +50,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
-.cardPagoMovil{
-  
-}
+
 
 .textFile{
     outline: none;
@@ -188,6 +186,17 @@ input:hover{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.button__support{
+  position: absolute;
+  top: 87vh;
+  right: 20px;	
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fcd535;
+  border:none;
 }
 
 .spinner {
