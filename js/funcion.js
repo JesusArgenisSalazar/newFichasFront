@@ -72,7 +72,7 @@ boton.addEventListener("click",(event)=>{
       popup.classList.remove('animacion-activa');
 
      //peticion a la api
-     fetch('http://localhost:4000/pago', {
+     fetch('https://apibvc-production.up.railway.app/', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json'
