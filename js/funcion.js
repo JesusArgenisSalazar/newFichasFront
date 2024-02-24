@@ -106,7 +106,7 @@ boton.addEventListener("click",(event)=>{
        }).catch(error => {
            console.log(error.message);
            
-           if(error.message == "Failed to fetch"){
+           if(error.message == "Failed to fetch" || error.message == "Error:Failed to fetch"){
              modal.style.display = "none";
              modalContainer.style.display = "none"; 
              popupText.textContent = "Sin conexión"; 
