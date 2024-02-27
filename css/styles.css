@@ -36,6 +36,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
+a{
+ color: #fcd535;
+ text-decoration: none;
+ display: inline-block;
+
+}
+
 .label{
   margin-top: 20px;
   margin-bottom:5px
@@ -120,6 +127,7 @@ input:hover{
    display: grid;
    grid-template-rows:25px 90px 85px;
    grid-template-columns: 1fr; 
+   margin-top: -35px;
    color: white;
    width :200px;
    height:200px;

@@ -14,7 +14,7 @@ let textModal = document.getElementById("textModal")
 let succedResult = document.getElementById("succedResult");
 let popup = document.querySelector(".popup");
 let popupText = document.querySelector("#textError"); 
-let support = document.getElementById("support");
+let pin = document.getElementById("pin");
 
 
  window.onbeforeunload = function(event) {
@@ -66,12 +66,12 @@ boton.addEventListener("click",(event)=>{
         spinnerModal.style.display = "inline-block"
         textModal.innerHTML = "Por favor, espere a que su pago sea verificado. El tiempo estimado es de 15 segundos."
         btnClose.style.visibility = "hidden";
-        support.style.display = "none";
-
+       
       
       popup.classList.remove('animacion-activa');
 
      //peticion a la api
+     //https://apibvc-production.up.railway.app/pago
      fetch('https://apibvc-production.up.railway.app/pago', {
        method: 'POST',
        headers: {
@@ -82,19 +82,26 @@ boton.addEventListener("click",(event)=>{
        .then(data => {
          console.log(data);
 
-         if(data.result == true){
+         if(data.result){
 
            textModal.innerHTML = "<span style='color:green;font-weight:bold'>¡</span>Pago verificado con éxito<span style='color:green;font-weight:bold'>!</span>"
            btnClose.style.visibility = "visible";
-           spinnerModal.style.display = "none"
+           spinnerModal.style.display = "none";
            succedResult.style.display = "block"
+           pin.innerHTML = data.result;
+
+         }else if(data.errorMessage == "No hay Fichas"){
+           
+          btnClose.style.visibility = "visible";
+          spinnerModal.style.display = "none";
+          textModal.innerHTML = `Lo sentimos actualmente el sistema no tiene cargadas fichas de <span style="color:#fcd535">${time.value}</span>`
 
          }else if(data.errorMessage == "Navigation timeout of 50000 ms exceeded"){
           
           btnClose.style.visibility = "visible";
           spinnerModal.style.display = "none"
-          textModal.innerHTML = "El sistema tardo demasiado en responder intente nuevamente o contacte a soporte."
-          support.style.display = "block";
+          textModal.innerHTML = "El sistema tardo demasiado en responder intente nuevamente o contacte a <a href='http://wa.link/8u9r2c'>soporte.</a>"
+         
          }else if(data.errorMessage == "Referencia no válida" || data.errorMessage == "Referencia usada" || data.errorMessage == "Monto insuficiente"){
           modal.style.display = "none";
           modalContainer.style.display = "none"; 
