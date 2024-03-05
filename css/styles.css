@@ -1,5 +1,4 @@
-
-body,input,p,h1{
+body,input,p,h1,h2{
   margin: 0;
   padding: 0;
 }
@@ -26,7 +25,8 @@ section{
 	font-family: 'Lato', sans-serif;
 	font-size: 18px;
 	font-weight : bold;
-	margin-top: -70px;
+	position: relative;
+	z-index: 10;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -118,6 +118,7 @@ input:hover{
 	background: black;
 	opacity: 0.5;
 	display: none;
+	z-index: 10;
 
 }
 
@@ -125,6 +126,7 @@ input:hover{
   
    position: absolute;
    display: grid;
+   z-index: 10;
    grid-template-rows:25px 90px 85px;
    grid-template-columns: 1fr; 
    margin-top: -35px;
@@ -171,7 +173,9 @@ input:hover{
 
 .popup{
 	position: absolute;
-	bottom: -50px;
+	bottom: 0px;
+	z-index: 5;
+	opacity: 0 ;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -195,10 +199,28 @@ input:hover{
 	justify-content: center;
 	align-items: center;
 }
-
+.button__operations{
+  position: absolute;
+  z-index: 10;
+  top: 15px;
+  right: 70px;	
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fcd535;
+  border:none;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+#btnClose{
+  padding-top: 5px;
+  padding-right: 5px;
+}
 
 .button__support{
   position: absolute;
+  z-index: 10;
   top: 15px;
   right: 15px;	
   width: 40px;
@@ -209,6 +231,40 @@ input:hover{
   margin: 0;
   padding: 0;
   font-weight: bold;
+}
+
+.tap__operations{
+   position: absolute;
+   z-index: 10;
+   bottom: 0px;
+   display: grid;
+   grid-template-rows:25px 50px 1fr;
+   grid-template-columns: 1fr; 
+   color: white;
+   width :100vw;
+   height:65vh;
+   background: #111114;
+   border-radius: 20px;
+   font-family: 'Lato', sans-serif;
+}
+.list_operations{
+  
+  display: grid;
+  grid-auto-rows: 40px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;	
+  padding: 0px 5px;
+  overflow: overlay;
+}
+
+.closeOp{
+  display: none;
+}
+
+.alingP{
+	display: flex;
+	align-items: center;
+	font-weight: bold;
 }
 
 
@@ -231,19 +287,29 @@ input:hover{
 @keyframes errorAnimationMessage {
   0% {
     bottom: -50px;
+    opacity: 1;
+    z-index: 20;
   }
   
   20%{
     bottom: 10px;
+    opacity: : 1;
+    z-index: 20;
+
   }
 
   80%{
     bottom: 10px;
+    opacity: 1;
+    z-index: 20;
+
   }
   
   100% {
-   
     bottom: -50px;
+    opacity: 1;
+    z-index: 20;
+
   }
 }
 
@@ -252,6 +318,11 @@ input:hover{
 	section{
 		width: 100%;
 		padding : 0 10px;
+		margin-top: -70px;
+	}
+
+	.tap__operations{
+		margin-top: -35px;
 	}
 
 

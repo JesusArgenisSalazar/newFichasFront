@@ -15,7 +15,10 @@ let succedResult = document.getElementById("succedResult");
 let popup = document.querySelector(".popup");
 let popupText = document.querySelector("#textError"); 
 let pin = document.getElementById("pin");
-
+let btnCloseOp = document.getElementById("btnCloseOp");
+let tabOp = document.querySelector(".tap__operations");
+let btnOpenOperation = document.querySelector(".button__operations");
+let listOperation = document.querySelector(".list_operations");
 
  window.onbeforeunload = function(event) {
   event.returnValue = "¿Estás seguro de que deseas abandonar esta página?";
@@ -90,6 +93,15 @@ boton.addEventListener("click",(event)=>{
            succedResult.style.display = "block"
            pin.innerHTML = data.result;
 
+           let datos = {
+             pin : data.result,
+             ref : referencia.value,
+             duracion : time.value,
+             fecha : new Date().toLocaleDateString()
+           }
+
+           guardarDatos(datos);
+
          }else if(data.errorMessage == "No hay Fichas"){
            
           btnClose.style.visibility = "visible";
@@ -143,6 +155,51 @@ btnClose.addEventListener("click",()=>{
     modal.style.display = "none";
     modalContainer.style.display = "none";
     succedResult.style.display = "none"
+
+});
+
+btnCloseOp.addEventListener("click",()=>{
+
+    tabOp.classList.toggle("closeOp");
+
+});
+
+btnOpenOperation.addEventListener("click",()=>{
+   tabOp.classList.toggle("closeOp");
+
+   listOperation.innerHTML = "";
+   let datosOperations = obtenerDatos().reverse();
+   let htmldata = `<p class="alingP "><span class="material-symbols-outlined">
+password
+</span>Pin</p><p class="alingP "><span class="material-symbols-outlined">
+paid
+</span>Pago</p><p class="alingP "><span class="material-symbols-outlined">
+timer
+</span>Duración</p><p class="alingP "><span class="material-symbols-outlined">
+calendar_month
+</span>Fecha</p>`;
+   
+   datosOperations.forEach((e)=>{ 
+
+     htmldata += `<p  class="label2" style="color:#fcd535">${e.pin}</p>
+                  <p  class="label2">${e.ref.slice(-4)}</p>
+                  <p  class="label2">${e.duracion}</p>
+                  <p  class="label2">${e.fecha}</p>
+                  `
+   });
+
+   listOperation.innerHTML = htmldata;
+});
+
+document.addEventListener("click", (e)=>{
+    if(btnOpenOperation.contains(event.target)){
+       return
+    }
+    if (!tabOp.contains(event.target)) {
+        tabOp.classList.add("closeOp");
+    }
+    
+
 
 });
 
