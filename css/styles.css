@@ -17,7 +17,6 @@ body{
   display:flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 
@@ -117,10 +116,12 @@ input:hover{
 
 .modalContent{
 
-  position: absolute;
+  position: fixed;
+  top:0;
   display: flex;
   justify-content: center;
   width: 100vw;
+  height: 100vh;
   background: black;
   opacity: 0.5;
   display: none;
@@ -177,7 +178,7 @@ input:hover{
 }
 
 .popup{
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   z-index: 5;
   opacity: 0 ;
@@ -241,7 +242,7 @@ input:hover{
 }
 
 .tap__operations{
-   position: absolute;
+   position: fixed;
    z-index: 10;
    bottom: 0px;
    display: grid;
