@@ -14,18 +14,51 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./images/icons/icon-192x192.png">
     <link rel="manifest" href="./manifest.json" />
     <link rel="icon" type="image/png" href="./images/favicon.png"/>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	<!-- icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> -->
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<title>Internet por fichas</title>
 </head>
 <body>
+<div class="menu">
+  <img src="images/logo.png">
+<div>
+  <button class="button__operations">
+   <span class="material-symbols-outlined">
+   fact_check
+   </span>
+  </button>
 
+  <button class="button__support">
+	<a style="color:black" href="http://wa.link/8u9r2c" target="blank"><span class="material-symbols-outlined">headset_mic</span></a>
+  </button>	
+  <button class="button__operations">
+    <span class="material-symbols-outlined">
+    account_circle
+    </span>
+  </button>
+</div>
+</div>
+<div class="menuSaldo">
+	<div class="saldo">
+		<p style="font-family:'Roboto'; font-size: 25px; display: inline-block;" id="saldo"></p><span style="font-family:'Roboto'; font-size: 16px"> Bs</span>
+	</div>
+
+	<button class="buttonSaldo" id="btnRecarga">Recargar</button>
+	
+</div>
+<div  class="containerImgBigLogo"><img src="images/bigLogo.png" style="width: 90px; margin-left: 32px">
+</div>
+<div class="container">
 
 <section>
-	<h1>Copra de Ficha Wifi</h1>
+	<h1 style="font-weight: 400; text-align: center;">Copra de Ticket Wifi</h1>
     <form>
 	<p class="label">Duración</p>
 	<select id="time" class="textFile">
@@ -34,15 +67,27 @@
 		<option>1 hora</option>
 		<option>24 horas</option>
 	</select>
-	<p class="label">Pago móvil</p>
+	<p class="label">Metodo de Pago</p>
+	<select id="metodoPago" class="textFile">
+		<option></option>
+		<option>Saldo</option>
+		<option>Pago Móvil</option>
+		<option style="display: none">Credito</option>
+	</select>
+	<div id="cardPagoMovil"style="display: none">
 	<!-- <p class="label">Pago movil</p> -->
 	<div class="cardPagoMovil">
 		<p class="label2">Banco: Venezolano de crédito</p>
 		<p class="label2">Cedula: 25685608</p>
 		<p class="label2">Telefono: 04128320064</p>
 	</div>
+
+	<div>
 	<p class="label">Referencia</p>
-	<input type="number" inputmode="numeric" name="" value="" class="textFile" id="referencia">
+	<input type="number" inputmode="numeric" name="" value="" class="textFile" id="referencia">	
+	</div>
+	</div>
+	
 	<div class="box__boxButton">
 		<p>Monto a pagar : <span id="monto" style="color:#fcd535; "></span></p>
 		<input name="" type="submit" class="button" value="Envíar" id="boton">
@@ -54,7 +99,9 @@
 </div>
 <div class="modal" id="modal">
     
-    <div class="ContentBtnClose"><i style="visibility: hidden" id="btnClose" class="material-icons">close</i></div>
+    <div class="ContentBtnClose">
+    <span class="material-symbols-outlined" style="visibility:hidden"id="btnClose">close</span>
+    </div>
 	<p class="text" id="textModal" style="margin-top: 5px; text-align: center; font-weight: bold;">Por favor, espere a que su pago sea verificado. El tiempo estimado es de 15 segundos.</p>
 	<div class="spinner" id="spinnerModal"></div>
 	<div class="contentResultModal">
@@ -70,18 +117,54 @@ error
 </span style="padding-right:5px"><span id="textError">Error</span></p>
 </div>
 
-<button class="button__operations">
-<span class="material-symbols-outlined">
-fact_check
-</span>
-</button>
 
-<button class="button__support">
-	<a style="color:black" href="http://wa.link/8u9r2c" target="blank"><span class="material-symbols-outlined">headset_mic</span></a>
-</button>
+
+<div class="modal_Recarga" id="modalRecarga">
+    
+    <div class="ContentBtnClose">
+    <span class="material-symbols-outlined" id="btnCloseRecarga">close</span>
+    </div>
+
+    <section class="sectionRecarga">
+	<h2 style="font-weight: 400; text-align: center;">Reporte</h2>
+    <form>
+	<p class="label">Monto</p>
+	<select id="montoRecarga" class="textFile">
+		<option></option>
+		<option>10 Bs</option>
+		<option>20 Bs</option>
+		<option>30 Bs</option>
+		<option>40 Bs</option>
+	</select>
+	<div id="cardPagoMovil">
+	<p class="label">Pago movil</p>
+	<div class="cardPagoMovil">
+		<p class="label2">Banco: Venezolano de crédito</p>
+		<p class="label2">Cedula: 25685608</p>
+		<p class="label2">Telefono: 04128320064</p>
+	</div>
+
+	<div>
+	<p class="label">Referencia</p>
+	<input type="number" inputmode="numeric" name="" value="" class="textFile" id="referenciaRecarga">	
+	</div>
+	</div>
+	
+	<div class="box__boxButton">
+		<input name="" type="submit" class="button" value="Envíar" id="botonReporte">
+		<div style="display: none;"class="spinner" id="spinner"></div>
+	</div>
+    </form>
+</section>
+
+</div>
+
+
+
 
 <div class="tap__operations closeOp">
-	<div class="ContentBtnClose"><i id="btnCloseOp" style="padding: 5px 10px" class="material-icons">close</i></div>
+	<div class="ContentBtnClose">
+	<span class="material-symbols-outlined" id="btnCloseOp" style="padding: 5px 10px">close</span></div>
 	<h2 style="text-align: center;">Mis Fichas</h2>
 <div class="list_operations">
 	 <p class="alingP "><span class="material-symbols-outlined">
@@ -96,16 +179,7 @@ calendar_month
 </div>
 
 </div>
-
-<script type="text/javascript">
-	// let altura = window.innerHeight;
-	// let modalC = document.getElementById("modalContainer");
-
-	// modalC.style.height = `${altura}px`
-	// console.log(altura);
-
-
-</script>
+</div>
 <script src="js/funcion.js" type="text/javascript"></script>
 <script src="js/LocalStorage.js" type="text/javascript"></script>
 <script src="./regist_serviceWorker.js"></script>

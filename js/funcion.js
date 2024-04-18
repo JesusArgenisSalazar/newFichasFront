@@ -2,6 +2,7 @@
 
 
 let time = document.getElementById("time");
+let metodoPago = document.getElementById("metodoPago");
 let monto = document.getElementById("monto");
 let referencia = document.getElementById("referencia");
 let boton = document.getElementById("boton");
@@ -19,6 +20,14 @@ let btnCloseOp = document.getElementById("btnCloseOp");
 let tabOp = document.querySelector(".tap__operations");
 let btnOpenOperation = document.querySelector(".button__operations");
 let listOperation = document.querySelector(".list_operations");
+let cardPagoMovil = document.getElementById("cardPagoMovil");
+let saldo = document.getElementById("saldo");
+let btnRecarga = document.getElementById("btnRecarga");
+let modalRecarga = document.getElementById("modalRecarga");
+let btnCloseRecarga = document.getElementById("btnCloseRecarga");
+let botonReporte = document.getElementById("botonReporte");
+let montoRecarga = document.getElementById("montoRecarga");
+let referenciaRecarga = document.getElementById("referenciaRecarga");
 
  window.onbeforeunload = function(event) {
   event.returnValue = "¿Estás seguro de que deseas abandonar esta página?";
@@ -52,6 +61,18 @@ if(selectTime == "30 minutos"){
   monto.innerHTML = "37 Bs"
 }
 
+});
+
+metodoPago.addEventListener("change",()=>{
+
+     let metodo = metodoPago.value;
+
+     if(metodo == "Pago Móvil"){
+
+       cardPagoMovil.style.display = "block"
+     }else if(metodo == "Saldo" || metodo == ""){
+       cardPagoMovil.style.display = "none"
+     }
 });
 
 boton.addEventListener("click",(event)=>{
@@ -202,4 +223,63 @@ document.addEventListener("click", (e)=>{
 
 
 });
+
+btnRecarga.addEventListener("click", (e)=>{
+   
+   modalContainer.style.display = "block";
+   modalRecarga.style.display = "grid";
+
+});
+
+
+btnCloseRecarga.addEventListener("click", (e)=>{
+     
+   modalContainer.style.display = "none";
+   modalRecarga.style.display = "none";
+});
+
+botonReporte.addEventListener("click", (e)=>{
+    
+
+   event.preventDefault();
+
+   if(montoRecarga.value == "" || referenciaRecarga.value == ""){
+      alert("Debe llenar todos los campos")
+   }else if(referenciaRecarga.value.length < 4){
+      alert("La referencia debe tener al menos 4 dígitos");
+   }else{
+
+     alert("listo");
+
+   }
+});
+
+
+
+
+const getDataUser = async () =>{
+     console.log("hola que tal");
+   try{
+
+       let userId = JSON.parse(localStorage.getItem('userId'));
+       console.log(userId);
+       fetch('http://localhost:4000/userData',{
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({ data: {userId}})}).then((res)=> res.json())
+       .then((res)=>{
+          
+           saldo.innerHTML = res.result;
+       });
+
+
+   }catch(e){
+     
+     console.log(e);
+   }
+}
+
+getDataUser();
 

@@ -11,22 +11,29 @@ h1{
 
 
 body{
-    color :white;
+  color :white;
   background: #181a20;
-  /*height: 100vh;*/
-  display:flex;
-  justify-content: center;
-  align-items: center;
 }
 
 
 section{
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
-  font-weight : bold;
+  font-weight : 400;
   position: relative;
   z-index: 10;
-  margin-top: 70px;
+}
+
+.sectionRecarga{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight : 400;
+  position: relative;
+  z-index: 10;
+  width :90%;
+  justify-self : center;
+  align-self: center;
+
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -43,10 +50,75 @@ a{
 
 }
 
+img{
+
+  width: 180px;
+  margin-left: 10px;
+}
+
+.menu{
+
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background: #181a20;
+  z-index: 19;
+
+}
+
+.menuSaldo{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60px;
+  border-bottom: 1px solid #474d57;
+  font-weight: 400;
+
+
+}
+
+.saldo{
+  margin-left: 10px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.buttonSaldo{
+  background:#fcd535;
+  border :none;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  color : black;
+  font-weight: 400;
+}
+
+
+.containerImgBigLogo{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.container{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .label{
   margin-top: 20px;
   margin-bottom:5px
-  font-weight: bold;
+  font-weight: 400;
   font-size: 20px
 }
 
@@ -66,24 +138,24 @@ a{
   padding: 15px 10px;
   width: 100%;
   box-sizing: border-box;
-  font-weight: bold;
+  font-weight: 400;
   background: #181a20;
   color : white;
   font-size: 15px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 
 option{
 
-  font-weight: bold;
+  font-weight: 400;
   padding: 15px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 select option:hover{
   background-color: #fcd535;
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 input:hover{
@@ -107,8 +179,9 @@ input:hover{
   font-size: 18px;
   border-radius: 10px;
   color : black;
-  font-family: 'Lato', sans-serif;
-  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 
+  
 
   
   
@@ -142,11 +215,49 @@ input:hover{
    background: #181a20;
    border-radius: 10px;
    padding:5px;
-   font-family: 'Lato', sans-serif;
+   font-family: 'Roboto', sans-serif;
    display: none;
 
 }
 
+/*.modalContent2{
+
+  position: fixed;
+  top:0;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 0.5;
+/*  display: none;
+  z-index: 20;
+
+}*/
+
+.modal_Recarga{
+
+   position: fixed;
+   top: calc(50% + 50px);
+   left: 50%;
+/*   margin-top: 50px;
+*/   transform: translate(-50%, -50%);
+   display: grid;
+   z-index: 20;
+   grid-template-rows:25px 1fr;
+   grid-template-columns: 1fr; 
+   color: white;
+   /*width :50%;*/
+   /*height: 70%;*/
+   width: 75%;
+   height: 80%;
+   background: #181a20;
+   border-radius: 10px;
+   padding:5px;
+   font-family: 'Roboto', sans-serif;
+   display: none;
+
+}
 .contentResultModal{
   
 }
@@ -173,7 +284,7 @@ input:hover{
   font-size: 18px;
   border-radius: 10px;
   color : black;
-  font-weight: 200;
+
 
 }
 
@@ -204,41 +315,47 @@ input:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
 
 }
 .button__operations{
-  position: absolute;
+  /*position: absolute;
   z-index: 10;
   top: 15px;
-  right: 70px;  
+  right: 70px*/;  
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background-color: #fcd535;
+/*  border-radius: 50%;
+*/
+  background: none;
   border:none;
   margin: 0;
-  padding: 0;
-  font-weight: bold;
+  padding-top: 15px;
+  font-weight: 400;
+  color: white;
 }
 #btnClose{
   padding-top: 5px;
   padding-right: 5px;
 }
-
+.button__support span,.button__operations span {
+  color: white;
+}
 .button__support{
-  position: absolute;
+  /*position: absolute;
   z-index: 25;
   top: 15px;
-  right: 15px;  
+  right: 15px;  */
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background-color: #fcd535;
-  border:none;
+  /*border-radius: 50%;*/
+/*  background-color: #fcd535;
+*/  border:none;
   margin: 0;
-  padding: 0;
-  font-weight: bold;
+  padding-top: 15px;
+  font-weight: 400;
+  background: none;
+
 }
 
 .tap__operations{
@@ -253,7 +370,7 @@ input:hover{
    height:65vh;
    background: #111114;
    border-radius: 20px;
-   font-family: 'Lato', sans-serif;
+   font-family: 'Roboto', sans-serif;
 }
 .list_operations{
   
@@ -272,7 +389,7 @@ input:hover{
 .alingP{
   display: flex;
   align-items: center;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 
@@ -321,35 +438,39 @@ input:hover{
   }
 }
 
-@media(min-width: 1000px){
+@media(min-width: 600px){
   body{
     height: 100vh;
   }
+
+  .modal_Recarga{
+     width: 50%;
+  }
+
+  .sectionRecarga{
+    width: 90%
+  }
+  
+
+
 }
 
 
-@media(max-width: 400px){
+@media(max-width: 450px){
 
   section{
     width: 100%;
     padding : 0 10px;
   }
 
+   .modal_Recarga{
+     width: 75%;
+   }
+
   .tap__operations{
     margin-top: -35px;
   }
 
-
-  .button{
-
-    font-weight: bold;
-  }
 }
 
-@media(max-width: 331px){
-
-  section{
-    margin-top: -10px;
-  }
-}
 
