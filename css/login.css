@@ -7,17 +7,19 @@ h1{
   font-size: 35px;
   padding-top: 20px;
   padding-bottom: 20px;
+  font-family: Roboto;
 }
 
 
 body{
   color :white;
   background: #181a20;
+  font-family: Roboto;
 }
 
 
 section{
-  font-family: 'Lato', sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 18px;
   font-weight : bold;
   position: relative;
@@ -57,7 +59,8 @@ a{
   margin-top: 20px;
   margin-bottom:5px
   font-weight: bold;
-  font-size: 20px
+  font-size: 20px;
+  font-family : Roboto;
 }
 
 .textFile{
@@ -80,6 +83,7 @@ a{
   flex-direction: column;
   justify-content: center;
   padding: 20px 0px;
+  height: 60px;
 }
 
 .box__boxButton .button{
@@ -102,5 +106,89 @@ a{
   font-weight: bold;
   font-size: 15px;
   color : #fcd535;
+}
+
+.Error{
+
+  font-family: 'Roboto';
+  font-size: 12px;
+  color: red;
+  font-weight: 100;
+  height: 20px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, .1);
+  border-radius: 50%;
+  border-top-color: #fcd535;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+}
+
+.popup{
+  position: fixed;
+  bottom: 0px;
+  z-index: 4000;
+  opacity: 0 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+    background:red;
+  width:250px;
+  border :none;
+  padding: 10px 0px;
+  font-size: 18px;
+  border-radius: 10px;
+  font-weight: 200;
+}
+
+.animacion-activa{
+    animation: errorAnimationMessage 6s linear;
+  animation-fill-mode: forwards;
+}
+
+.popup__text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes errorAnimationMessage {
+  0% {
+    bottom: -50px;
+    opacity: 1;
+    z-index: 20;
+  }
+  
+  20%{
+    bottom: 10px;
+    opacity: : 1;
+    z-index: 20;
+
+  }
+
+  80%{
+    bottom: 10px;
+    opacity: 1;
+    z-index: 20;
+
+  }
+  
+  100% {
+    bottom: -50px;
+    opacity: 1;
+    z-index: 20;
+
+  }
 }
 

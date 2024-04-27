@@ -99,6 +99,19 @@ img{
   font-weight: 400;
 }
 
+.buttonSesion{
+  background:#fcd535;
+  border :none;
+  border-radius: 10px;
+  color : black;
+  font-weight: 400;
+  width: 90px;
+  height: 35px;
+  margin-top: 10px;
+  justify-self: center;
+}
+
+
 
 .containerImgBigLogo{
   margin-top: 20px;
@@ -187,6 +200,25 @@ input:hover{
   
 }
 
+.modalPerfil{
+
+   position: absolute;
+   top: 45px;
+   left: -95px;
+   display: grid;
+   z-index: 20;
+   grid-template-rows: 40px 20px 40px;
+   grid-template-columns: 1fr; 
+   color: white;
+   width :110px;
+   height: 110px;
+   background: #181a20;
+   border: 1px solid #474d57;
+   border-radius: 10px;
+   padding:5px;
+   font-family: 'Roboto', sans-serif;
+}
+
 .modalContent{
 
   position: fixed;
@@ -202,16 +234,24 @@ input:hover{
 
 }
 
+.toggleModalContent{
+  display: none;
+}
+
+
 .modal{
   
-   position: absolute;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
    display: grid;
    z-index: 20;
-   grid-template-rows:25px 90px 85px;
+   grid-template-rows:45px 90px 85px;
    grid-template-columns: 1fr; 
    color: white;
-   width :200px;
-   height:200px;
+   width :250px;
+   height:220px;
    background: #181a20;
    border-radius: 10px;
    padding:5px;
@@ -291,7 +331,7 @@ input:hover{
 .popup{
   position: fixed;
   bottom: 0px;
-  z-index: 5;
+  z-index: 4000;
   opacity: 0 ;
   display: flex;
   justify-content: center;
@@ -325,6 +365,7 @@ input:hover{
   right: 70px*/;  
   width: 40px;
   height: 40px;
+  position: relative;
 /*  border-radius: 50%;
 */
   background: none;
@@ -360,7 +401,7 @@ input:hover{
 
 .tap__operations{
    position: fixed;
-   z-index: 10;
+   z-index: 40;
    bottom: 0px;
    display: grid;
    grid-template-rows:25px 50px 1fr;
@@ -368,7 +409,7 @@ input:hover{
    color: white;
    width :100vw;
    height:65vh;
-   background: #111114;
+   background: #181a20;
    border-radius: 20px;
    font-family: 'Roboto', sans-serif;
 }
@@ -376,7 +417,7 @@ input:hover{
   
   display: grid;
   grid-auto-rows: 40px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 10px; 
   padding: 0px 5px;
   overflow: overlay;
@@ -389,7 +430,9 @@ input:hover{
 .alingP{
   display: flex;
   align-items: center;
+  justify-content: center;
   font-weight: 400;
+  font-weight: bold;
 }
 
 
@@ -413,27 +456,23 @@ input:hover{
   0% {
     bottom: -50px;
     opacity: 1;
-    z-index: 20;
   }
   
   20%{
     bottom: 10px;
     opacity: : 1;
-    z-index: 20;
 
   }
 
   80%{
     bottom: 10px;
     opacity: 1;
-    z-index: 20;
 
   }
   
   100% {
     bottom: -50px;
     opacity: 1;
-    z-index: 20;
 
   }
 }

@@ -38,10 +38,19 @@
   <button class="button__support">
 	<a style="color:black" href="http://wa.link/8u9r2c" target="blank"><span class="material-symbols-outlined">headset_mic</span></a>
   </button>	
-  <button class="button__operations">
+  <button class="button__operations" id="infoPerfil" >
     <span class="material-symbols-outlined">
     account_circle
     </span>
+    <div class="modalPerfil toggleModalContent" id="modalPerfil">
+    	<img src="images/user.png" style="width: 32px; height: 32px; justify-self : center; margin: 5px">
+    	<p class="label2" id="nombreUsuario" style="margin-top: 5px "></p>
+    	<input type="submit" name="" value="Cerrar sesión" class="buttonSesion" id="btnCerrarSesion"> 
+
+    	
+
+
+    </div>
   </button>
 </div>
 </div>
@@ -95,9 +104,9 @@
 	</div>
     </form>
 </section>
-<div class="modalContent" id="modalContainer">
+<div class="modalContent" style="display: none" id="modalContainer">
 </div>
-<div class="modal" id="modal">
+<div class="modal" id="modal" style="display: none">
     
     <div class="ContentBtnClose">
     <span class="material-symbols-outlined" style="visibility:hidden"id="btnClose">close</span>
@@ -111,11 +120,8 @@
     </div>
 
 </div>
-<div class="popup">
-<p class="popup__text"><span class="material-symbols-outlined">
-error
-</span style="padding-right:5px"><span id="textError">Error</span></p>
-</div>
+
+
 
 
 
@@ -160,12 +166,17 @@ error
 </div>
 
 
-
+<div class="popup">
+<p class="popup__text"><span class="material-symbols-outlined">
+error
+</span style="padding-right:5px"><span id="textError">Error</span></p>
+</div>
 
 <div class="tap__operations closeOp">
 	<div class="ContentBtnClose">
 	<span class="material-symbols-outlined" id="btnCloseOp" style="padding: 5px 10px">close</span></div>
-	<h2 style="text-align: center;">Mis Fichas</h2>
+	<h2 style="text-align: center;">Operaciones</h2>
+<div class="spinner" id="spinnerOperation"></div>
 <div class="list_operations">
 	 <p class="alingP "><span class="material-symbols-outlined">
 password
