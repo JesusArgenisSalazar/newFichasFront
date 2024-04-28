@@ -14,7 +14,19 @@
     <!-- googleAuth -->
 	<script src="https://accounts.google.com/gsi/client" async defer></script>
 
+
   <title>Inicio de sesión</title>
+
+
+  <!-- <style type="text/css">
+  	
+  	.google-signin-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+  </style> -->
 </head>
 <body>
 <div class="menu">
@@ -44,10 +56,29 @@
 
 		<div>
 		<!-- <div id="google-login-button">gogle</div> -->
-    <div id="g_id_onload"
+    
+    <!-- <div id="g_id_onload"
      data-client_id="179276598398-ppatvbqhhdo7aq2sv2likk5ms1ifq5b7.apps.googleusercontent.com"
      data-callback="handleCredentialResponse">
-    </div>
+    </div> -->
+
+    <div id="g_id_onload"
+     data-client_id="179276598398-ppatvbqhhdo7aq2sv2likk5ms1ifq5b7.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback="handleCredentialResponse"
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="outline"
+     data-text="signin_with"
+     data-size="large"
+     data-locale="es-419"
+     data-logo_alignment="left">
+</div>
 
 	</div>
 	
