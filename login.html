@@ -66,6 +66,21 @@ error
   function handleCredentialResponse(response) {
     // Aquí puedes manejar la respuesta de inicio de sesión
     console.log(response.credential);
+
+    const token = response.credential; // Aquí debes colocar tu token
+
+// Separa las tres partes del token
+const parts = token.split('.');
+
+// Decodifica el payload
+const payload = JSON.parse(atob(parts[1]));
+
+// Accede a los datos del usuario
+// const nombre = payload.nombre;
+// const avatar = payload.avatar;
+
+// Utiliza los datos del usuario como desees
+    console.log(payload)
   }
 
   // function renderButton() {
