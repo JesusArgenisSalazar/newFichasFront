@@ -8,6 +8,7 @@ h1{
   padding-top: 20px;
   padding-bottom: 20px;
   font-family: Roboto;
+  text-align: center;
 }
 
 
@@ -21,16 +22,18 @@ body{
 section{
   font-family: Roboto, sans-serif;
   font-size: 18px;
-  font-weight : bold;
   position: relative;
   z-index: 10;
   margin-top: 70px;
+  width: 313px;
+  padding: 0 10px;
+  box-sizing : border-box;
 }
 
 img{
 
   width: 180px;
-  margin-left: 15px;
+  margin-left: 10px;
 }
 
 a{
@@ -58,7 +61,6 @@ a{
 .label{
   margin-top: 20px;
   margin-bottom:5px
-  font-weight: bold;
   font-size: 20px;
   font-family : Roboto;
 }
@@ -70,7 +72,6 @@ a{
   padding: 15px 10px;
   width: 100%;
   box-sizing: border-box;
-  font-weight: bold;
   background: #181a20;
   color : white;
   font-size: 15px;
@@ -96,14 +97,12 @@ a{
   border-radius: 10px;
   color : black;
   font-family: 'Lato', sans-serif;
-  font-weight: bold;
 
 }
 
 .minlabel{
   margin-top: 20px;
   margin-bottom:5px
-  font-weight: bold;
   font-size: 15px;
   color : #fcd535;
 }
@@ -142,7 +141,6 @@ a{
   padding: 10px 0px;
   font-size: 18px;
   border-radius: 10px;
-  font-weight: 200;
 }
 
 .animacion-activa{
@@ -191,4 +189,23 @@ a{
 
   }
 }
+
+
+
+@media(min-width: 600px){
+  body{
+    height: 100vh;
+  }
+}
+
+
+@media(max-width: 450px){
+
+  section{
+    width: 100%;
+    padding : 0 10px;
+  }
+
+}
+
 

@@ -6,6 +6,7 @@ const ErrorMessagePassword = document.getElementById("ErrorMessagePassword")
 const spinner = document.getElementById("spinner");
 let popup = document.querySelector(".popup");
 let popupText = document.querySelector("#textError"); 
+let logeoGoogle = document.getElementById("logeoGoogle");
 
 const loginValid = false;
 
@@ -54,6 +55,11 @@ sendButtonLogin.addEventListener("click", (e)=>{
   
 });
 
+
+logeoGoogle.addEventListener("click", (e)=>{
+
+    e.preventDefault(); 
+});
 email.addEventListener("input", ()=>{
 
     validarEmail(email.value);
