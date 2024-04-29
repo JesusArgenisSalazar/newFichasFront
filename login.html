@@ -134,7 +134,7 @@ const payload = JSON.parse(atob(parts[1]));
     if(dataUserGoogle.email){
        
        console.log("iniciado")
-       fetch('http://localhost:4000/loginGoogle', {
+       fetch('https://new-api-bvc.vercel.app/loginGoogle', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json'
@@ -152,7 +152,7 @@ const payload = JSON.parse(atob(parts[1]));
              
             popupText.textContent = data.errorMessage; 
             popup.classList.add('animacion-activa');
-            
+
           }else{
             popupText.textContent = "Error desconocido"; 
             popup.classList.add('animacion-activa');

@@ -102,7 +102,7 @@ boton.addEventListener("click",(event)=>{
 
      //peticion a la api
      //https://apibvc-production.up.railway.app/pago
-     fetch('http://localhost:4000/pago', {
+     fetch('https://new-api-bvc.vercel.app/pago', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -235,7 +235,7 @@ btnOpenOperation.addEventListener("click", async ()=>{
      spinnerOperation.style.display = "inline-block";
      popup.classList.remove('animacion-activa');  
 
-     fetch("http://localhost:4000/operations",{
+     fetch("https://new-api-bvc.vercel.app/operations",{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -369,7 +369,7 @@ botonReporte.addEventListener("click",async (e)=>{
 
      try{
 
-       fetch('http://localhost:4000/recarga',{
+       fetch('https://new-api-bvc.vercel.app/recarga',{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -467,7 +467,7 @@ const getDataUser = async () =>{
        token = dataUser.token;
        userId = dataUser.userId;
        console.log(userId);
-       fetch('http://localhost:4000/userData',{
+       fetch('https://new-api-bvc.vercel.app/userData',{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
