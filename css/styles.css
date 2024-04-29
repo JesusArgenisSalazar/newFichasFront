@@ -193,7 +193,7 @@ input:hover{
   border-radius: 10px;
   color : black;
   font-family: 'Roboto', sans-serif;
-  font-weight: 
+  font-weight: 400
   
 
   
@@ -317,7 +317,8 @@ input:hover{
 
 .button{
 
-  background:#fcd535;
+  background:#181a20;
+  border : 2px solid #474d57;
   width: 80%;
   border :none;
   padding: 10px 0px;

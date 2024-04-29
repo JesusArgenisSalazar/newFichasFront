@@ -58,7 +58,9 @@ sendButtonLogin.addEventListener("click", (e)=>{
 
 logeoGoogle.addEventListener("click", (e)=>{
 
-    e.preventDefault(); 
+    e.preventDefault();
+
+    
 });
 email.addEventListener("input", ()=>{
 

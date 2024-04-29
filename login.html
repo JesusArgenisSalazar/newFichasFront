@@ -72,7 +72,9 @@
        data-auto_prompt="false">
        </div>
 
-       <div class="g_id_signin"
+       <div
+       id = "logeoGoogle"
+       class="g_id_signin"
        data-type="standard"
        data-shape="rectangular"
        data-theme="outline"
@@ -85,7 +87,7 @@
        </div>
 
 	  <div class="box__boxButton" style="position: relative; top: -65px">
-	   <img src="images/google.png" style="width: 32px; height: 32px; position : absolute; top : 34px; left: 0px"><input id= "logeoGoogle" name="" type="submit" class="button" value="Continuar con Google" >
+	   <img src="images/google.png" style="width: 32px; height: 32px; position : absolute; top : 34px; left: 0px"><input  name="" type="submit" class="button" value="Continuar con Google" style="border : 2px solid #474d57; background:#181a20; color: white" >
 		<div style="display: none;"class="spinner" id="spinner"></div>		
 	  </div>
 
@@ -105,6 +107,8 @@ error
 </div>
 
 <script>
+
+  let dataUserGoogle;
   function handleCredentialResponse(response) {
     // Aquí puedes manejar la respuesta de inicio de sesión
     console.log(response.credential);
@@ -117,12 +121,19 @@ const parts = token.split('.');
 // Decodifica el payload
 const payload = JSON.parse(atob(parts[1]));
 
-// Accede a los datos del usuario
-// const nombre = payload.nombre;
-// const avatar = payload.avatar;
+ 
+    dataUserGoogle = {
+      email : payload.email,
+      nombre : given_name,
+      apellido : family_name
+    }
 
-// Utiliza los datos del usuario como desees
-    console.log(payload)
+    console.log(dataUserGoogle, "aqui")
+
+    if(dataUserGoogle.email){
+       
+       console.log("iniciado")
+    }
   }
 
   // function renderButton() {
