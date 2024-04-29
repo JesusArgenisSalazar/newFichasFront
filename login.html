@@ -122,11 +122,11 @@ const parts = token.split('.');
 const payload = JSON.parse(atob(parts[1]));
 
     console.log(payload);
-    
+
     dataUserGoogle = {
       email : payload.email,
-      nombre : given_name,
-      apellido : family_name
+      nombre : payload.given_name,
+      apellido :  payload.family_name
     }
 
     console.log(dataUserGoogle, "aqui")
