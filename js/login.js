@@ -38,7 +38,7 @@ sendButtonLogin.addEventListener("click", (e)=>{
 
           if(data.sesion){
             localStorage.setItem("dataUser", JSON.stringify(data.sesion));
-            window.location.href = "/index.html"
+            window.location.href = "/newFichasFront/index.html"
           }else if(data.errorMessage == "Contraseña incorecta" || data.errorMessage == "Email no existe"){
              
             popupText.textContent = data.errorMessage; 

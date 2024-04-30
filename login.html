@@ -147,7 +147,7 @@ const payload = JSON.parse(atob(parts[1]));
 
           if(data.sesion){
             localStorage.setItem("dataUser", JSON.stringify(data.sesion));
-            window.location.href = "/index.html"
+            window.location.href = "/newFichasFront/index.html"
           }else if(data.errorMessage == "Este correo esta en uso"){
              
             popupText.textContent = data.errorMessage; 
