@@ -134,7 +134,7 @@ const payload = JSON.parse(atob(parts[1]));
     if(dataUserGoogle.email){
        
        console.log("iniciado")
-       fetch('https://new-api-bvc-l96b.vercel.app/loginGoogle', {
+       fetch('https://newapibvc.onrender.com/loginGoogle', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json'
@@ -147,7 +147,7 @@ const payload = JSON.parse(atob(parts[1]));
 
           if(data.sesion){
             localStorage.setItem("dataUser", JSON.stringify(data.sesion));
-            window.location.href = "file:///C:/Users/PC/Desktop/projects/new%20version/frontFichas/index.html"
+            window.location.href = "/index.html"
           }else if(data.errorMessage == "Este correo esta en uso"){
              
             popupText.textContent = data.errorMessage; 

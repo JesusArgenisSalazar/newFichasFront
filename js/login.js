@@ -23,7 +23,7 @@ sendButtonLogin.addEventListener("click", (e)=>{
    popup.classList.remove('animacion-activa');
 
 
-   fetch('https://new-api-bvc-l96b.vercel.app/login', {
+   fetch('https://newapibvc.onrender.com/login', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ sendButtonLogin.addEventListener("click", (e)=>{
 
           if(data.sesion){
             localStorage.setItem("dataUser", JSON.stringify(data.sesion));
-            window.location.href = "file:///C:/Users/PC/Desktop/projects/new%20version/frontFichas/index.html"
+            window.location.href = "/index.html"
           }else if(data.errorMessage == "Contraseña incorecta" || data.errorMessage == "Email no existe"){
              
             popupText.textContent = data.errorMessage; 
