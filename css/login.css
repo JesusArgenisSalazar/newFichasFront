@@ -129,7 +129,7 @@ a{
 
 .popup{
   position: fixed;
-  bottom: 0px;
+  bottom: -50px;
   z-index: 4000;
   opacity: 0 ;
   display: flex;
