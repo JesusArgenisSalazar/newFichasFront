@@ -493,6 +493,7 @@ const getDataUser = async () =>{
 
             saldo.innerHTML = res.result;
             nombreUsuario.textContent = `${name} ${lastName}`
+            console.log("colocado")
            }
           
           
