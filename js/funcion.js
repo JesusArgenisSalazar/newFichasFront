@@ -32,11 +32,21 @@ let spinnerOperation = document.getElementById("spinnerOperation");
 let nombreUsuario = document.getElementById("nombreUsuario"); 
 let infoPerfil = document.getElementById("infoPerfil");
 let modalPerfil = document.getElementById("modalPerfil");
+let btnCerrarSesion = document.getElementById("btnCerrarSesion");
+let mostraVentanaEmergente = true;
 let token;
 
 
+
+if(!localStorage.getItem("dataUser")){
+
+  window.location.href = "/newFichasFront/login.html"
+}
  window.onbeforeunload = function(event) {
-  event.returnValue = "¿Estás seguro de que deseas abandonar esta página?";
+
+  if(mostraVentanaEmergente){
+    event.returnValue = "¿Estás seguro de que deseas abandonar esta página?";
+  }
 };
 
 referencia.addEventListener("keypress",(event)=>{
@@ -504,6 +514,15 @@ const getDataUser = async () =>{
        });
 
 }
+
+
+btnCerrarSesion.addEventListener("click",()=>{
+  
+  mostraVentanaEmergente = false;
+  localStorage.removeItem("dataUser");
+  window.location.href = "/newFichasFront/"
+
+});
 
 let resetForm = ()=>{
 
