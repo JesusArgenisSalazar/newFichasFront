@@ -102,8 +102,8 @@ a{
 }
 
 .minlabel{
-  margin-top: -60px;
-  margin-bottom:5px
+/*  margin-top: -60px;
+*/  margin-bottom:5px
   font-size: 15px;
   color : #fcd535;
 }
