@@ -369,7 +369,7 @@ botonReporte.addEventListener("click",async (e)=>{
 
      try{
 
-       fetch('http://localhost:4000/recarga',{
+       fetch('https://newapibvc.onrender.com/recarga',{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',

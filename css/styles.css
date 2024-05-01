@@ -194,9 +194,7 @@ input:hover{
   color : black;
   font-family: 'Roboto', sans-serif;
   font-weight: 400
-  
-
-  
+ 
   
 }
 
@@ -280,17 +278,13 @@ input:hover{
    position: fixed;
    top: calc(50% + 50px);
    left: 50%;
-/*   margin-top: 50px;
-*/   transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
    display: grid;
    z-index: 20;
    grid-template-rows:25px 1fr;
    grid-template-columns: 1fr; 
    color: white;
-   /*width :50%;*/
-   /*height: 70%;*/
    width: 75%;
-   height: 80%;
    background: #181a20;
    border-radius: 10px;
    padding:5px;
