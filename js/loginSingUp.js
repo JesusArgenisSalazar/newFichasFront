@@ -47,7 +47,7 @@ sendButton.addEventListener("click", (e)=>{
           sendButton.style.display = "inline-block"
 
           if(data.result){
-            window.location.href = "/newFichasFront/login.html"
+            window.location.href = "/login.html"
           }else if(data.errorMessage == "Este correo esta en uso"){
              
             popupText.textContent = data.errorMessage; 
