@@ -10,6 +10,9 @@
     <meta name="HandheldFriendly" content="true">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <script type="text/javascript" src="lib/jszip/dist/jszip.min.js"></script>
+
     <link rel="shortcut icon" type="image/png" href="./images/icons/icon-192x192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/icons/icon-192x192.png">
     <link rel="manifest" href="./manifest.json" />
@@ -29,6 +32,13 @@
 <div class="menu">
   <img src="images/logo.png">
 <div>
+
+   <button class="button__addTickets" id="button__addTickets">
+   <span class="material-symbols-outlined">
+add_circle
+</span>
+  </button>
+
   <button class="button__operations">
    <span class="material-symbols-outlined">
    fact_check
@@ -159,6 +169,41 @@
 	<div class="box__boxButton">
 		<input name="" type="submit" class="button" value="Envíar" id="botonReporte">
 		<div style="display: none;"class="spinner" id="spinner"></div>
+	</div>
+    </form>
+</section>
+
+</div>
+
+<div class="modal_Recarga" id="modalAddTickets">
+    
+    <div class="ContentBtnClose">
+    <span class="material-symbols-outlined" id="btnCloseAddTickets">close</span>
+    </div>
+
+    <section class="sectionRecarga">
+	<h2 style="font-weight: 400; text-align: center;">Agregar fichas</h2>
+    <form>
+	<p class="label">cargar archivo .docx</p>
+	 <input type="file" id="archivo" accept=".docx,.txt" style="border: none">
+
+	 <p class="label">Tipo de tickets</p>
+	<select id="tipoTickets" class="textFile">
+		<option></option>
+		<option>30 minutos</option>
+		<option>1 hora</option>
+		<option>24 horas</option>
+	</select>
+	
+	<p class="label">Vista previa <span id=counterFichas></span></p>
+     
+    
+    <textarea rows="10" cols="50" class="textFile" readonly id="areaText"> </textarea>
+
+	<div class="box__boxButton">
+	<input name="" type="submit" class="button" value="Envíar" id="botonAddFichas">
+
+ <div style="display: none;"class="spinner" id="spinner"></div>
 	</div>
     </form>
 </section>

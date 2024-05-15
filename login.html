@@ -82,16 +82,16 @@
        data-size="large"
        data-width = "500"
        data-locale="es-419"
-       data-logo_alignment="left" style="overflow: hidden; position: relative; top: 30px; z-index: 3000; opacity: 0;height: 65px
+       data-logo_alignment="left" style="overflow: hidden; position: relative; top: 30px; z-index: 3000; opacity: 0;height: 65px; display: none;
        ">
        </div>
 
-	  <div class="box__boxButton" style="position: relative; top: -65px">
+	  <div class="box__boxButton" style="position: relative; top: -65px; display:none">
 	   <img src="images/google.png" style="width: 32px; height: 32px; position : absolute; top : 34px; left: 0px"><input  name="" type="submit" class="button" value="Continuar con Google" style="border : 2px solid #474d57; background:#181a20; color: white" >
 		<div style="display: none;"class="spinner" id="spinner"></div>		
 	  </div>
 
-	   <p class="minlabel" style="margin-top: -60px"><a href="/newFichasFront/registro.html">Crear nueva cuenta</a></p>
+	   <p class="minlabel" style="margin-top: 30px; padding-bottom: 10px"><a href="/newFichasFront/registro.html">Crear nueva cuenta</a></p>
 	
 	</div>
 	
@@ -134,7 +134,7 @@ const payload = JSON.parse(atob(parts[1]));
     if(dataUserGoogle.email){
        
        console.log("iniciado")
-       fetch('https://newapibvc.onrender.com/loginGoogle', {
+       fetch('https://newapibvc-production.up.railway.app/loginGoogle', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json'

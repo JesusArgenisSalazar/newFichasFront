@@ -325,7 +325,7 @@ input:hover{
 
 .popup{
   position: fixed;
-  bottom: 0px;
+  bottom: -50px;
   z-index: 4000;
   opacity: 0 ;
   display: flex;
@@ -351,6 +351,25 @@ input:hover{
   justify-content: center;
   align-items: center;
   font-family: 'Roboto', sans-serif;
+
+}
+
+.button__addTickets{
+  /*position: absolute;
+  z-index: 10;
+  top: 15px;
+  right: 70px*/;  
+  width: 40px;
+  height: 40px;
+  position: relative;
+/*  border-radius: 50%;
+*/
+  background: none;
+  border:none;
+  margin: 0;
+  padding-top: 15px;
+  font-weight: 400;
+  color: white;
 
 }
 .button__operations{
@@ -417,6 +436,8 @@ input:hover{
   padding: 0px 5px;
   overflow: overlay;
 }
+
+
 
 .closeOp{
   display: none;

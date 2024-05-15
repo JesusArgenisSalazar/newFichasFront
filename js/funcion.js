@@ -33,14 +33,32 @@ let nombreUsuario = document.getElementById("nombreUsuario");
 let infoPerfil = document.getElementById("infoPerfil");
 let modalPerfil = document.getElementById("modalPerfil");
 let btnCerrarSesion = document.getElementById("btnCerrarSesion");
+let button__addTickets = document.getElementById("button__addTickets");
+let modalAddTickets = document.getElementById("modalAddTickets");
+let btnCloseAddTickets = document.getElementById("btnCloseAddTickets");
+let areaText = document.getElementById("areaText");
+let archivo = document.getElementById("archivo");
+let counterFichas = document.getElementById("counterFichas");
+let botonAddFichas = document.getElementById("botonAddFichas");
+let tipoTickets = document.getElementById("tipoTickets");
 let mostraVentanaEmergente = true;
 let token;
+
 
 
 
 if(!localStorage.getItem("dataUser")){
 
   window.location.href = "/newFichasFront/login.html"
+}else{
+  
+  let info = JSON.parse(localStorage.getItem('dataUser'))
+  
+  if(info.typeUser != "admin"){
+
+    button__addTickets.style.display = "none";
+  }
+
 }
  window.onbeforeunload = function(event) {
 
@@ -112,7 +130,7 @@ boton.addEventListener("click",(event)=>{
 
      //peticion a la api
      //https://apibvc-production.up.railway.app/pago
-     fetch('https://newapibvc.onrender.com/pago', {
+     fetch('https://newapibvc-production.up.railway.app/pago', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -173,6 +191,11 @@ boton.addEventListener("click",(event)=>{
            modal.style.display = "none";
            modalContainer.style.display = "none"; 
            popupText.textContent = "Acceso denegado"; 
+           popup.classList.add('animacion-activa');
+         }else if(data.errorMessage.slice(0,17) == "Evaluation failed" ){ 
+           modal.style.display = "none";
+           modalContainer.style.display = "none"; 
+           popupText.textContent = "Error bancario, reintente"; 
            popup.classList.add('animacion-activa');
          }else{
            modal.style.display = "none";
@@ -245,7 +268,7 @@ btnOpenOperation.addEventListener("click", async ()=>{
      spinnerOperation.style.display = "inline-block";
      popup.classList.remove('animacion-activa');  
 
-     fetch("https://newapibvc.onrender.com/operations",{
+     fetch("https://newapibvc-production.up.railway.app/operations",{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -304,6 +327,61 @@ btnOpenOperation.addEventListener("click", async ()=>{
  
 });
 
+button__addTickets.addEventListener("click",()=>{
+   
+   modalContainer.style.display = "block";
+   modalAddTickets.style.display = "grid"
+     
+});
+
+botonAddFichas.addEventListener("click",(event)=>{
+     
+     event.preventDefault();
+     
+     let pines = areaText.value;
+     let tipoFicha = tipoTickets.value;
+     
+     popup.classList.remove('animacion-activa');
+
+     try{
+   
+        fetch('https://newapibvc-production.up.railway.app/addTickets',{
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+         'authorization': token
+       },
+       body: JSON.stringify({ data: {pines: pines, tipoFicha:tipoFicha }})}).then((res)=> res.json())
+       .then((res)=>res).then((res)=>{
+
+           console.log(res);
+           if(res.result){
+
+            areaText.value = "";
+            tipoTickets.value = "";
+
+           }else{
+            popupText.textContent = res.errorMessage; 
+            popup.classList.add('animacion-activa');
+           }
+
+       }).catch((error)=>{
+          
+          console.log("error al cargar fichas.");
+          popupText.textContent = data.errorMessage; 
+          popup.classList.add('animacion-activa');
+
+       });
+
+     }catch(error){
+      
+      console.log("error al cargar fichas2.");
+ 
+     } 
+    
+
+});
+
 infoPerfil.addEventListener("click", ()=>{
     
 
@@ -315,22 +393,23 @@ infoPerfil.addEventListener("click", ()=>{
 
 });
 
-document.addEventListener("click", (e)=>{
+document.addEventListener("click", (event)=>{
 
     
-    if(infoPerfil.contains(event.target) || modalPerfil.contains(event.target) || modalRecarga.contains(event.target) ||tabOp.contains(event.target) || btnOpenOperation.contains(event.target) || btnRecarga.contains(event.target) || boton.contains(event.target)){
+    if(infoPerfil.contains(event.target) || modalPerfil.contains(event.target) || modalRecarga.contains(event.target) ||tabOp.contains(event.target) || btnOpenOperation.contains(event.target) || btnRecarga.contains(event.target) || boton.contains(event.target) || button__addTickets.contains(event.target) || modalAddTickets.contains(event.target) || botonAddFichas.contains(event.target)){
        return
     }
 
     // si modal esta abilitado y se hace click en el documento
     // no cierres ningun modal
-    if (!tabOp.contains(event.target) || !modalRecarga.contains(event.target) || !modalRecarga.contains(event.target)) {
+    if (!tabOp.contains(event.target) || !modalRecarga.contains(event.target) || !modalRecarga.contains(event.target) || !modalAddTickets.contains(event.target)) {
          if(modal.style.display != "none"){
           return
         }
 
         tabOp.classList.add("closeOp");
         modalRecarga.style.display = "none";
+        modalAddTickets.style.display = "none";
         modalContainer.style.display = "none";
         modalPerfil.classList.add("toggleModalContent");
         
@@ -351,6 +430,13 @@ btnCloseRecarga.addEventListener("click", (e)=>{
      
    modalContainer.style.display = "none";
    modalRecarga.style.display = "none";
+});
+
+btnCloseAddTickets.addEventListener("click",(e)=>{
+      
+   modalContainer.style.display = "none";
+   modalAddTickets.style.display = "none"
+
 });
 
 botonReporte.addEventListener("click",async (e)=>{
@@ -378,8 +464,9 @@ botonReporte.addEventListener("click",async (e)=>{
       popup.classList.remove('animacion-activa');
 
      try{
-
-       fetch('https://newapibvc.onrender.com/recarga',{
+       
+       //https://newapibvc.onrender.com/recarga
+       fetch('https://newapibvc-production.up.railway.app/recarga',{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -422,6 +509,13 @@ botonReporte.addEventListener("click",async (e)=>{
              modal.style.display = "none";
              modalContainer.style.zIndex = "20"
              popupText.textContent = "Acceso denegado"; 
+             popup.classList.add('animacion-activa');
+
+           }else if(data.errorMessage.slice(0,17) == "Evaluation failed" ){
+             
+             modal.style.display = "none";
+             modalContainer.style.zIndex = "20"
+             popupText.textContent = "Error bancario, reintente"; 
              popup.classList.add('animacion-activa');
 
            }else{
@@ -477,7 +571,7 @@ const getDataUser = async () =>{
        token = dataUser.token;
        userId = dataUser.userId;
        console.log(userId);
-       fetch('https://newapibvc.onrender.com/userData',{
+       fetch('https://newapibvc-production.up.railway.app/userData',{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -517,6 +611,51 @@ const getDataUser = async () =>{
 }
 
 
+archivo.addEventListener("change", ()=>{
+
+//Obtiene el contenido del docx con jszip y luego se parsea a texto plano
+function cargarArchivo() {
+  const archivo = document.getElementById('archivo').files[0];
+  const lector = new FileReader();
+
+  lector.onload = function(evento) {
+    const contenido = evento.target.result;
+    const zip = new JSZip();
+
+    zip.loadAsync(contenido).then(function(zip) {
+      // Accede al contenido del archivo docx
+      const contenidoDocx = zip.file('word/document.xml').async('string').then(function(contenidoXml) {
+  // Utiliza DOMParser para analizar el contenido XML
+  let parser = new DOMParser();
+  let xmlDoc = parser.parseFromString(contenidoXml, "text/xml");
+
+  // Extrae el texto plano del contenido XML
+  var contenidoTexto = xmlDoc.documentElement.textContent;
+
+  // Aquí puedes trabajar con el contenido de texto plano
+  // console.log(contenidoTexto.split("Pin: ").slice("1"));
+  let tickets = contenidoTexto.split("Pin: ").slice("1");
+
+   
+  let dataArea = "";
+
+  tickets.forEach((elm)=>{
+    
+     dataArea += `${elm}\n`  
+  });
+  areaText.value = dataArea.trim();
+  counterFichas.innerHTML = `<span style="font-size: 15px; color: green">  ${dataArea.trim().split("\n").length} pines cargados</span>`
+
+})
+});
+   
+}
+
+lector.readAsArrayBuffer(archivo);
+
+}
+  cargarArchivo();
+});
 btnCerrarSesion.addEventListener("click",()=>{
   
   mostraVentanaEmergente = false;

@@ -7,9 +7,14 @@ const CACHE_NAME = 'v1_cache_internetporfichas',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
     'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0',
     './index.html',
+    './login.html',
+    './registro.html',
     './css/styles.css',
+    './css/login.css',
     './js/funcion.js',
-    './js/LocalStorage.js'
+    './js/LocalStorage.js',
+    './js/login.js',
+    './js/loginSingUp.js'
   ]
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos

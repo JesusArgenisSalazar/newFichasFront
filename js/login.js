@@ -23,7 +23,7 @@ sendButtonLogin.addEventListener("click", (e)=>{
    popup.classList.remove('animacion-activa');
 
 
-   fetch('https://newapibvc.onrender.com/login', {
+   fetch('https://newapibvc-production.up.railway.app/login', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json'
@@ -38,6 +38,7 @@ sendButtonLogin.addEventListener("click", (e)=>{
 
           if(data.sesion){
             localStorage.setItem("dataUser", JSON.stringify(data.sesion));
+            console.log(data.sesion)
             window.location.href = "/newFichasFront/index.html"
           }else if(data.errorMessage == "Contraseña incorecta" || data.errorMessage == "Email no existe"){
              
