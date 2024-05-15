@@ -47,19 +47,15 @@ let token;
 
 
 
-if(!localStorage.getItem("dataUser")){
-
-  window.location.href = "/login.html"
-}else{
   
-  let info = JSON.parse(localStorage.getItem('dataUser'))
+let info = JSON.parse(localStorage.getItem('dataUser'))
   
-  if(info.typeUser != "admin"){
+if(info.typeUser != "admin"){
 
-    button__addTickets.style.display = "none";
-  }
-
+  button__addTickets.style.display = "none";
 }
+
+
  window.onbeforeunload = function(event) {
 
   if(mostraVentanaEmergente){
