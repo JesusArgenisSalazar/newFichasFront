@@ -50,6 +50,23 @@ sendButtonLogin.addEventListener("click", (e)=>{
           }
            
           
+       }).catch((error)=>{
+           
+           console.log(error.message);
+           setTimeout(function() {
+
+             if(error.message == "Failed to fetch" || error.message == "Error:Failed to fetch"){
+               spinner.style.display = "none"
+               botonLogin.style.display = "inline-block"
+               popupText.textContent = "Sin conexión"; 
+               popup.classList.add('animacion-activa');      
+             }else{
+               spinner.style.display = "none"
+               botonLogin.style.display = "inline-block"
+               popupText.textContent = "Error desconocido"; 
+               popup.classList.add('animacion-activa');  
+             }
+           }, 1500);
        });
          
     }

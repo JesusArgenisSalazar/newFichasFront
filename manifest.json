@@ -1,8 +1,8 @@
 {
-  "name": "Internet por Fichas",
-  "short_name": "Internet por Fichas",
-  "description": "Bienvenid@s a Internet por Fichas donde podras adquirir tus fichas de internet al mejor precio :)",
-  "theme_color": "#fcd535",
+  "name": "Zona WI-FI JS",
+  "short_name": "Zona WI-FI JS",
+  "description": "Bienvenid@s a Autonomous donde podras adquirir tus fichas de internet al mejor precio :)",
+  "theme_color": "#181a20",
   "background_color": "#181a20",
   "display": "standalone",
   "orientation": "portrait",
