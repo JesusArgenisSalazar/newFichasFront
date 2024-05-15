@@ -660,7 +660,7 @@ btnCerrarSesion.addEventListener("click",()=>{
   
   mostraVentanaEmergente = false;
   localStorage.removeItem("dataUser");
-  window.location.href = "/newFichasFront/"
+  window.location.href = "/"
 
 });
 
