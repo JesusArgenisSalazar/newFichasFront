@@ -49,7 +49,7 @@ let token;
 
 if(!localStorage.getItem("dataUser")){
 
-  window.location.href = "/newFichasFront/login.html"
+  window.location.href = "/login.html"
 }else{
   
   let info = JSON.parse(localStorage.getItem('dataUser'))
