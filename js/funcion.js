@@ -108,9 +108,16 @@ metodoPago.addEventListener("change",()=>{
 boton.addEventListener("click",(event)=>{
    
    event.preventDefault();
-
-   if(time.value == "" || referencia.value == "" && metodoPago == "Pago Móvil"){
+   
+   if(time.value == "" && referencia.value == "" && metodoPago.value == "" ){
+      alert("Debe llenar todos los campos")
+   }else if((time.value == "" || referencia.value == "") && metodoPago.value == "Pago Móvil"){
    	  alert("Debe llenar todos los campos")
+   
+
+   }else if(time.value == "" || metodoPago.value == ""){
+      alert("Debe llenar todos los campos")
+
    }else if(referencia.value.length < 4 && metodoPago == "Pago Móvil"){
       alert("La referencia debe tener al menos 4 dígitos");
    }else{
@@ -160,45 +167,53 @@ boton.addEventListener("click",(event)=>{
           btnClose.style.visibility = "visible";
           spinnerModal.style.display = "none";
           textModal.innerHTML = `Lo sentimos actualmente el sistema no tiene cargadas fichas de <span style="color:#fcd535">${time.value}</span>`
-
+          
          }else if(data.errorMessage == "Navigation timeout of 50000 ms exceeded"){
           
           btnClose.style.visibility = "visible";
           spinnerModal.style.display = "none"
           textModal.innerHTML = "El sistema tardo demasiado en responder intente nuevamente o contacte a <a href='http://wa.link/8u9r2c'>soporte.</a>"
-         
+          
          }else if(data.errorMessage == "Referencia no válida" || data.errorMessage == "Referencia usada" || data.errorMessage == "Monto insuficiente"){
           modal.style.display = "none";
           modalContainer.style.display = "none"; 
           popupText.textContent = data.errorMessage; 
           popup.classList.add('animacion-activa');
+          resetForm();
 
          }else if(data.errorMessage.slice(0,8) == "net::ERR"){
            modal.style.display = "none";
            modalContainer.style.display = "none"; 
            popupText.textContent = "Sin conexión"; 
            popup.classList.add('animacion-activa');
+           resetForm();
          }else if(data.errorMessage == "Saldo insuficiente"){
            modal.style.display = "none";
            modalContainer.style.display = "none"; 
            popupText.textContent = "Saldo insuficiente"; 
            popup.classList.add('animacion-activa');
+           resetForm();
          }else if(data.errorMessage == "Acceso denegado" || data.errorMessage == "Token inválido"){
            modal.style.display = "none";
            modalContainer.style.display = "none"; 
            popupText.textContent = "Acceso denegado"; 
            popup.classList.add('animacion-activa');
+           resetForm();
          }else if(data.errorMessage.slice(0,17) == "Evaluation failed" ){ 
            modal.style.display = "none";
            modalContainer.style.display = "none"; 
            popupText.textContent = "Error bancario, reintente"; 
            popup.classList.add('animacion-activa');
+           resetForm();
          }else{
            modal.style.display = "none";
            modalContainer.style.display = "none"; 
            popupText.textContent = "Error desconocido"; 
            popup.classList.add('animacion-activa');
+           resetForm()
          }
+
+
          
        }).catch(error => {
            console.log(error.message);
@@ -485,8 +500,9 @@ botonReporte.addEventListener("click",async (e)=>{
              modalContainer.style.zIndex = "20"
              popupText.textContent = data.errorMessage; 
              popup.classList.add('animacion-activa');
+             resetForm();
            
-           }else if(data.errorMessage == "Navigation timeout of 1000 ms exceeded"){
+           }else if(data.errorMessage == "Navigation timeout of 50000 ms exceeded"){
              console.log("entre timeout exceeded")
              textModal.innerHTML = "El sistema tardo demasiado en responder intente nuevamente o contacte a <a href='http://wa.link/8u9r2c'>soporte.</a>"
              btnClose.style.visibility = "visible";
@@ -499,6 +515,7 @@ botonReporte.addEventListener("click",async (e)=>{
              modalContainer.style.zIndex = "20"
              popupText.textContent = "Sin conexión"; 
              popup.classList.add('animacion-activa');
+             resetForm();
 
            }else if(data.errorMessage == "Acceso denegado" || data.errorMessage == "Token inválido"){
              
@@ -506,6 +523,7 @@ botonReporte.addEventListener("click",async (e)=>{
              modalContainer.style.zIndex = "20"
              popupText.textContent = "Acceso denegado"; 
              popup.classList.add('animacion-activa');
+             resetForm();
 
            }else if(data.errorMessage.slice(0,17) == "Evaluation failed" ){
              
@@ -513,6 +531,7 @@ botonReporte.addEventListener("click",async (e)=>{
              modalContainer.style.zIndex = "20"
              popupText.textContent = "Error bancario, reintente"; 
              popup.classList.add('animacion-activa');
+             resetForm();
 
            }else{
 
@@ -520,6 +539,7 @@ botonReporte.addEventListener("click",async (e)=>{
              modalContainer.style.zIndex = "20"
              popupText.textContent = "Error desconocido"; 
              popup.classList.add('animacion-activa');
+             resetForm();
            }
            
 
