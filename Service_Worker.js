@@ -19,7 +19,8 @@ const CACHE_NAME = 'v2_cache_internetporfichas',
     './svg/close.svg',
     './svg/headphones.svg',
     './svg/list.svg',
-    './svg/user.svg'
+    './svg/user.svg',
+    './svg/error.svg'
   ]
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
