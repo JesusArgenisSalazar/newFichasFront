@@ -39,28 +39,23 @@
 </head>
 <body>
 <div class="menu">
-  <img src="images/logo.png">
+  <img src="images/logo.png" style="margin-left: 10px">
 <div>
 
    <button class="button__addTickets" id="button__addTickets">
-   <span class="material-symbols-outlined">
-add_circle
-</span>
+    <img style="width: 24px;height: 24px" src="svg/add.svg" alt="Descripción del icono">
   </button>
 
   <button class="button__operations">
-   <span class="material-symbols-outlined">
-   fact_check
-   </span>
+   <img style="width: 24px;height: 24px" src="svg/list.svg" alt="Descripción del icono">
   </button>
 
   <button class="button__support">
-	<a style="color:black" href="http://wa.link/8u9r2c" target="blank"><span class="material-symbols-outlined">headset_mic</span></a>
+	<a style="color:black" href="http://wa.link/8u9r2c" target="blank"><img style="width: 24px;height: 24px" src="svg/headphones.svg" alt="Descripción del icono"></a>
   </button>	
   <button class="button__operations" id="infoPerfil" >
-    <span class="material-symbols-outlined">
-    account_circle
-    </span>
+    <img style="width: 24px;height: 24px" src="svg/user.svg" alt="Descripción del icono">
+
     <div class="modalPerfil toggleModalContent" id="modalPerfil">
     	<img src="images/user.png" style="width: 32px; height: 32px; justify-self : center; margin: 5px">
     	<p class="label2" id="nombreUsuario" style="margin-top: 5px "></p>
@@ -128,7 +123,7 @@ add_circle
 <div class="modal" id="modal" style="display: none">
     
     <div class="ContentBtnClose">
-    <span class="material-symbols-outlined" style="visibility:hidden"id="btnClose">close</span>
+    <img id="btnClose" style="width: 24px;height: 24px;visibility:hidden" src="svg/close.svg" alt="Descripción del icono">
     </div>
 	<p class="text" id="textModal" style="margin-top: 5px; text-align: center; font-weight: bold;">Por favor, espere a que su pago sea verificado. El tiempo estimado es de 15 segundos.</p>
 	<div class="spinner" id="spinnerModal"></div>
@@ -147,7 +142,8 @@ add_circle
 <div class="modal_Recarga" id="modalRecarga">
     
     <div class="ContentBtnClose">
-    <span class="material-symbols-outlined" id="btnCloseRecarga">close</span>
+     <img id="btnCloseRecarga" style="width: 24px;height: 24px" src="svg/close.svg" alt="Descripción del icono">
+
     </div>
 
     <section class="sectionRecarga">
@@ -187,7 +183,7 @@ add_circle
 <div class="modal_Recarga" id="modalAddTickets">
     
     <div class="ContentBtnClose">
-    <span class="material-symbols-outlined" id="btnCloseAddTickets">close</span>
+     <img id="btnCloseAddTickets" style="width: 24px;height: 24px" src="svg/close.svg" alt="Descripción del icono">
     </div>
 
     <section class="sectionRecarga">
@@ -228,7 +224,8 @@ error
 
 <div class="tap__operations closeOp">
 	<div class="ContentBtnClose">
-	<span class="material-symbols-outlined" id="btnCloseOp" style="padding: 5px 10px">close</span></div>
+  <img id="btnCloseOp" style="width: 24px;height: 24px;padding: 5px 10px" src="svg/close.svg" alt="Descripción del icono">
+</div>
 	<h2 style="text-align: center;">Operaciones</h2>
 <div class="spinner" id="spinnerOperation"></div>
 <div class="list_operations">

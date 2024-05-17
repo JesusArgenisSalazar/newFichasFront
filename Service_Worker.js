@@ -1,6 +1,6 @@
 
 //asignar un nombre y versión al cache
-const CACHE_NAME = 'v1_cache_internetporfichas',
+const CACHE_NAME = 'v2_cache_internetporfichas',
   urlsToCache = [
     '.',
     'https://fonts.googleapis.com/css2?family=Lato&display=swap',
@@ -14,7 +14,12 @@ const CACHE_NAME = 'v1_cache_internetporfichas',
     './js/funcion.js',
     './js/LocalStorage.js',
     './js/login.js',
-    './js/loginSingUp.js'
+    './js/loginSingUp.js',
+    './svg/add.svg',
+    './svg/close.svg',
+    './svg/headphones.svg',
+    './svg/list.svg',
+    './svg/user.svg'
   ]
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
