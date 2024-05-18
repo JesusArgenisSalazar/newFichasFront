@@ -3,6 +3,13 @@ body,input,p,h1,h2{
   padding: 0;
 }
 
+
+@font-face {
+  font-family: 'myRoboto'; 
+  src: url('fonts/Roboto-Regular.ttf') format('truetype'); 
+}
+
+
 h1{
   font-size: 35px;
   padding-top: 20px;
@@ -17,7 +24,7 @@ body{
 
 
 section{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'myRoboto', sans-serif;
   font-size: 18px;
   font-weight : 400;
   position: relative;
@@ -25,7 +32,7 @@ section{
 }
 
 .sectionRecarga{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'myRoboto', sans-serif;
   font-size: 18px;
   font-weight : 400;
   position: relative;
@@ -153,7 +160,7 @@ img{
   background: #181a20;
   color : white;
   font-size: 15px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'myRoboto', sans-serif;
 }
 
 
@@ -161,12 +168,12 @@ option{
 
   font-weight: 400;
   padding: 15px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'myRoboto', sans-serif;
 }
 select option:hover{
   background-color: #fcd535;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'myRoboto', sans-serif;
 }
 
 input:hover{
@@ -190,7 +197,7 @@ input:hover{
   font-size: 18px;
   border-radius: 10px;
   color : black;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'myRoboto', sans-serif;
   font-weight: 400
  
   
@@ -212,7 +219,7 @@ input:hover{
    border: 1px solid #474d57;
    border-radius: 10px;
    padding:5px;
-   font-family: 'Roboto', sans-serif;
+   font-family: 'myRoboto', sans-serif;
 }
 
 .modalContent{
@@ -251,7 +258,7 @@ input:hover{
    background: #181a20;
    border-radius: 10px;
    padding:5px;
-   font-family: 'Roboto', sans-serif;
+   font-family: 'myRoboto', sans-serif;
    display: none;
 
 }
@@ -286,7 +293,7 @@ input:hover{
    background: #181a20;
    border-radius: 10px;
    padding:5px;
-   font-family: 'Roboto', sans-serif;
+   font-family: 'myRoboto', sans-serif;
    display: none;
 
 }
@@ -348,7 +355,7 @@ input:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'myRoboto', sans-serif;
 
 }
 
@@ -423,7 +430,7 @@ input:hover{
    height:65vh;
    background: #181a20;
    border-radius: 20px;
-   font-family: 'Roboto', sans-serif;
+   font-family: 'myRoboto', sans-serif;
 }
 .list_operations{
   
