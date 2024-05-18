@@ -7,11 +7,16 @@ const spinner = document.getElementById("spinner");
 let popup = document.querySelector(".popup");
 let popupText = document.querySelector("#textError"); 
 let logeoGoogle = document.getElementById("logeoGoogle");
+let eyePassword = document.getElementById("eyePassword");
 
 const loginValid = false;
 
 sendButtonLogin.addEventListener("click", (e)=>{
+  password.type = "password"
+  eyePassword.src = "svg/eyeoff.svg"
+
   e.preventDefault();
+
 
   let validPassword = validarPassword(password.value);
   let validEmail = validarEmail(email.value);
@@ -143,3 +148,19 @@ const validarPassword = (password)=>{
     }
 
 }
+
+
+eyePassword.addEventListener("click",(e)=>{
+   
+    if(password.type == "text"){
+
+       password.type = "password"
+       eyePassword.src = "svg/eyeoff.svg"
+    }else{
+
+       password.type = "text"
+       eyePassword.src = "svg/eyeon.svg"
+
+
+    }
+});

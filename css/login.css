@@ -8,6 +8,20 @@ body,input,p,h1,h2{
   src: url('fonts/Roboto-Regular.ttf') format('truetype'); 
 }
 
+.eyePassword{
+
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 13px;
+  right: 10px
+}
+
+.container__eyePassword{
+
+  position: relative;
+}
+
 h1{
   font-size: 35px;
   padding-top: 20px;
