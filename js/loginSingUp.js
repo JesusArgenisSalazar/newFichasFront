@@ -13,6 +13,7 @@ const blockTecla = document.querySelectorAll("input");
 const spinner = document.getElementById("spinner");
 let popup = document.querySelector(".popup");
 let popupText = document.querySelector("#textError"); 
+let eyePassword = document.getElementById("eyePassword");
 
 
 
@@ -195,4 +196,20 @@ const validarPassword = (password)=>{
     }
 
 }
+
+
+eyePassword.addEventListener("click",(e)=>{
+   
+    if(password.type == "text"){
+
+       password.type = "password"
+       eyePassword.src = "svg/eyeoff.svg"
+    }else{
+
+       password.type = "text"
+       eyePassword.src = "svg/eyeon.svg"
+
+
+    }
+});
 
