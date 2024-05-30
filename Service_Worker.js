@@ -1,6 +1,6 @@
 
 //asignar un nombre y versión al cache
-const CACHE_NAME = 'v6_cache_internetporfichas',
+const CACHE_NAME = 'v7_cache_internetporfichas',
   urlsToCache = [
     '.',
     'https://fonts.googleapis.com/css2?family=Lato&display=swap',

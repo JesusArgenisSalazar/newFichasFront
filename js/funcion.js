@@ -136,8 +136,8 @@ boton.addEventListener("click",(event)=>{
       popup.classList.remove('animacion-activa');
 
      //peticion a la api
-     //https://apibvc-production.up.railway.app/pago
-     fetch('https://apibvc-production.up.railway.app/pago', {
+     //https://newapibvc-production.up.railway.app/
+     fetch('https://newapibvc-production.up.railway.app/pago', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -289,7 +289,7 @@ btnOpenOperation.addEventListener("click", async ()=>{
      spinnerOperation.style.display = "inline-block";
      popup.classList.remove('animacion-activa');  
 
-     fetch("https://apibvc-production.up.railway.app/operations",{
+     fetch("https://newapibvc-production.up.railway.app/operations",{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -365,8 +365,8 @@ botonAddFichas.addEventListener("click",(event)=>{
      popup.classList.remove('animacion-activa');
 
      try{
-   
-        fetch('https://apibvc-production.up.railway.app/addTickets',{
+        //https://newapibvc-production.up.railway.app/
+        fetch('https://newapibvc-production.up.railway.app/addTickets',{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -487,7 +487,7 @@ botonReporte.addEventListener("click",async (e)=>{
      try{
        
        //https://newapibvc.onrender.com/recarga
-       fetch('https://apibvc-production.up.railway.app/recarga',{
+       fetch('https://newapibvc-production.up.railway.app/recarga',{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -597,7 +597,7 @@ const getDataUser = async () =>{
        token = dataUser.token;
        userId = dataUser.userId;
        console.log(userId);
-       fetch('https://apibvc-production.up.railway.app/userData',{
+       fetch('https://newapibvc-production.up.railway.app/userData',{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
