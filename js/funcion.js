@@ -41,6 +41,8 @@ let archivo = document.getElementById("archivo");
 let counterFichas = document.getElementById("counterFichas");
 let botonAddFichas = document.getElementById("botonAddFichas");
 let tipoTickets = document.getElementById("tipoTickets");
+let maxCredit = document.getElementById("maxCredit");
+let siboloMoneda = document.getElementById("moneda");
 let mostraVentanaEmergente = true;
 let token;
 
@@ -55,13 +57,15 @@ if(info.typeUser != "admin"){
   button__addTickets.style.display = "none";
 }
 
+maxCredit.textContent = `${info.maxCredit}`
 
- window.onbeforeunload = function(event) {
 
-  if(mostraVentanaEmergente){
-    event.returnValue = "¿Estás seguro de que deseas abandonar esta página?";
-  }
-};
+//  window.onbeforeunload = function(event) {
+
+//   if(mostraVentanaEmergente){
+//     event.returnValue = "¿Estás seguro de que deseas abandonar esta página?";
+//   }
+// };
 
 referencia.addEventListener("keypress",(event)=>{
 
@@ -100,7 +104,7 @@ metodoPago.addEventListener("change",()=>{
      if(metodo == "Pago Móvil"){
 
        cardPagoMovil.style.display = "block"
-     }else if(metodo == "Saldo" || metodo == ""){
+     }else if(metodo == "Saldo" || metodo == "Crédito" || metodo == ""){
        cardPagoMovil.style.display = "none"
      }
 });
@@ -133,7 +137,7 @@ boton.addEventListener("click",(event)=>{
 
      //peticion a la api
      //https://apibvc-production.up.railway.app/pago
-     fetch('https://newapibvc-production.up.railway.app/pago', {
+     fetch('https://apibvc-production.up.railway.app/pago', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -191,6 +195,12 @@ boton.addEventListener("click",(event)=>{
            modal.style.display = "none";
            modalContainer.style.display = "none"; 
            popupText.textContent = "Saldo insuficiente"; 
+           popup.classList.add('animacion-activa');
+           resetForm();
+         }else if(data.errorMessage == "Crédito insuficiente"){
+           modal.style.display = "none";
+           modalContainer.style.display = "none"; 
+           popupText.textContent = "Crédito insuficiente"; 
            popup.classList.add('animacion-activa');
            resetForm();
          }else if(data.errorMessage == "Acceso denegado" || data.errorMessage == "Token inválido"){
@@ -279,7 +289,7 @@ btnOpenOperation.addEventListener("click", async ()=>{
      spinnerOperation.style.display = "inline-block";
      popup.classList.remove('animacion-activa');  
 
-     fetch("https://newapibvc-production.up.railway.app/operations",{
+     fetch("https://apibvc-production.up.railway.app/operations",{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -356,7 +366,7 @@ botonAddFichas.addEventListener("click",(event)=>{
 
      try{
    
-        fetch('https://newapibvc-production.up.railway.app/addTickets',{
+        fetch('https://apibvc-production.up.railway.app/addTickets',{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -477,7 +487,7 @@ botonReporte.addEventListener("click",async (e)=>{
      try{
        
        //https://newapibvc.onrender.com/recarga
-       fetch('https://newapibvc-production.up.railway.app/recarga',{
+       fetch('https://apibvc-production.up.railway.app/recarga',{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -587,7 +597,7 @@ const getDataUser = async () =>{
        token = dataUser.token;
        userId = dataUser.userId;
        console.log(userId);
-       fetch('https://newapibvc-production.up.railway.app/userData',{
+       fetch('https://apibvc-production.up.railway.app/userData',{
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -600,7 +610,14 @@ const getDataUser = async () =>{
              popupText.textContent = "Acceso denegado"; 
              popup.classList.add('animacion-activa');
            }else{
-
+            
+            if(res.result < 0){
+             saldo.style.color = "red"
+             siboloMoneda.style.color = "red"
+            }else{
+              saldo.style.color = "white"
+              siboloMoneda.style.color = "white"
+            }
             saldo.innerHTML = res.result;
             nombreUsuario.textContent = `${name} ${lastName}`
             console.log("colocado")

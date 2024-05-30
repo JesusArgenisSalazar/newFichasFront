@@ -84,6 +84,7 @@ img{
   margin-top: 60px;
   border-bottom: 1px solid #474d57;
   font-weight: 400;
+  padding-bottom: 30px;
 
 
 }
@@ -92,6 +93,8 @@ img{
   margin-left: 10px;
   font-size: 30px;
   font-weight: 400;
+  margin-top: 15px;
+
 }
 
 .buttonSaldo{

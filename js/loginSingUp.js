@@ -33,7 +33,7 @@ sendButton.addEventListener("click", (e)=>{
    sendButton.style.display = "none"
    popup.classList.remove('animacion-activa');
 
-      fetch('https://newapibvc-production.up.railway.app/user', {
+      fetch('https://apibvc-production.up.railway.app/user', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json'

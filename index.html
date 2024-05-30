@@ -71,7 +71,8 @@
 </div>
 <div class="menuSaldo">
 	<div class="saldo">
-		<p style="font-family:'myRoboto'; font-size: 25px; display: inline-block;" id="saldo"></p><span style="font-family:'myRoboto'; font-size: 16px"> Bs</span>
+		<p style="font-family:'myRoboto'; font-size: 25px; display: inline-block;" id="saldo"></p><span style="font-family:'myRoboto'; font-size: 16px" id="moneda"> Bs</span>
+		<p style="font-family:'myRoboto'; font-size: 12px; padding-top: 7px; color: #dddddd">Límite de crédito: <span id="maxCredit"></span> bs</p>
 	</div>
 
 	<button class="buttonSaldo" id="btnRecarga">Recargar</button>
@@ -96,6 +97,7 @@
 		<option></option>
 		<option>Saldo</option>
 		<option>Pago Móvil</option>
+		<option>Crédito</option>
 		<option style="display: none">Credito</option>
 	</select>
 	<div id="cardPagoMovil"style="display: none">
