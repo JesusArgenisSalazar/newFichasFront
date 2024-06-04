@@ -133,33 +133,33 @@ const payload = JSON.parse(atob(parts[1]));
 
     if(dataUserGoogle.email){
        
-       console.log("iniciado")
-       fetch('https://newapibvc-production.up.railway.app/loginGoogle', {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'application/json'
-       },
-       body: JSON.stringify({ data: dataUserGoogle})
-     }).then(response => response.json())
-       .then(data => {
+     //   console.log("iniciado")
+     //   fetch('https://newapibvc-production.up.railway.app/loginGoogle', {
+     //   method: 'POST',
+     //   headers: {
+     //     'Content-Type': 'application/json'
+     //   },
+     //   body: JSON.stringify({ data: dataUserGoogle})
+     // }).then(response => response.json())
+     //   .then(data => {
 
-          console.log(data);
+     //      console.log(data);
 
-          if(data.sesion){
-            localStorage.setItem("dataUser", JSON.stringify(data.sesion));
-            window.location.href = "/newFichasFront/index.html"
-          }else if(data.errorMessage == "Este correo esta en uso"){
+     //      if(data.sesion){
+     //        localStorage.setItem("dataUser", JSON.stringify(data.sesion));
+     //        window.location.href = "/newFichasFront/index.html"
+     //      }else if(data.errorMessage == "Este correo esta en uso"){
              
-            popupText.textContent = data.errorMessage; 
-            popup.classList.add('animacion-activa');
+     //        popupText.textContent = data.errorMessage; 
+     //        popup.classList.add('animacion-activa');
 
-          }else{
-            popupText.textContent = "Error desconocido"; 
-            popup.classList.add('animacion-activa');
-          }
+     //      }else{
+     //        popupText.textContent = "Error desconocido"; 
+     //        popup.classList.add('animacion-activa');
+     //      }
            
           
-       });
+     //   });
     }
   }
 
