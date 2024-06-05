@@ -31,6 +31,22 @@
 
  
   </style>
+
+
+  <script type="text/javascript">
+    
+    const client = google.accounts.oauth2.initTokenClient({
+     client_id: '179276598398-ppatvbqhhdo7aq2sv2likk5ms1ifq5b7.apps.googleusercontent.com',
+     scope: 'https://www.googleapis.com/auth/calendar.readonly \
+             https://www.google.com/auth/gmail.addons.current.message.action \
+             https://www.googleapis.com/auth/gmail.addons.current.message.readonly',
+     callback: (response) => {
+       console.log(response)
+     },
+    });
+
+    
+  </script>
 </head>
 <body>
 <div class="menu">
@@ -136,13 +152,7 @@ const payload = JSON.parse(atob(parts[1]));
     console.log(dataUserGoogle, "aqui")
 
 
-    const client = google.accounts.oauth2.initTokenClient({
-     client_id: '179276598398-ppatvbqhhdo7aq2sv2likk5ms1ifq5b7.apps.googleusercontent.com',
-     scope: 'https://www.googleapis.com/auth/calendar.readonly',
-     callback: (response) => {
-       console.log(response)
-     },
-    });
+    
 
     if(dataUserGoogle.email){
        
