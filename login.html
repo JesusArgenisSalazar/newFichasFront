@@ -15,6 +15,8 @@
 	<script src="https://accounts.google.com/gsi/client" async defer></script>
 
 
+
+
   <title>Inicio de sesión</title>
 
 
@@ -65,7 +67,7 @@
        
 
       <div id="g_id_onload"
-       data-client_id="179276598398-hpfdr7rp5sonq8uffhr70h6vsar0i64h.apps.googleusercontent.com"
+       data-client_id="179276598398-ppatvbqhhdo7aq2sv2likk5ms1ifq5b7.apps.googleusercontent.com"
        data-context="signin"
        data-ux_mode="popup"
        data-callback="handleCredentialResponse"
@@ -90,6 +92,8 @@
 	   <img src="images/google.png" style="width: 32px; height: 32px; position : absolute; top : 34px; left: 0px"><input  name="" type="submit" class="button" value="Continuar con Google" style="border : 2px solid #474d57; background:#181a20; color: white" >
 		<div style="display: none;"class="spinner" id="spinner"></div>		
 	  </div>
+
+    <button onclick="client.requestAccessToken();">Authorize me</button>
 
 	   <p class="minlabel" style="margin-top: 30px; padding-bottom: 10px"><a href="/newFichasFront/registro.html">Crear nueva cuenta</a></p>
 	
@@ -130,6 +134,15 @@ const payload = JSON.parse(atob(parts[1]));
     }
 
     console.log(dataUserGoogle, "aqui")
+
+
+    const client = google.accounts.oauth2.initTokenClient({
+     client_id: '179276598398-ppatvbqhhdo7aq2sv2likk5ms1ifq5b7.apps.googleusercontent.com',
+     scope: 'https://www.googleapis.com/auth/calendar.readonly',
+     callback: (response) => {
+       console.log(response)
+     },
+    });
 
     if(dataUserGoogle.email){
        
