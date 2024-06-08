@@ -675,3 +675,70 @@ let resetForm = ()=>{
 
 getDataUser();
 
+
+
+
+
+
+
+fetch('https://www.googleapis.com/gmail/v1/users/me/messages?labelIds=INBOX', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer ya29.a0AXooCgvvtq_TXjmsCjyoZAYUtRuRwtizTn8mb23gPKU1tHINM2VG7EEWxiDKhpO9CQqsHoLgdG4G5WSRadqddb226S1mr_1WDe9Ei8fpYx6dv2ju13TQ1TZqxNR3WMFyqIAtyyuO9YpINjVainJzIGI1cy8U6jdn7o4aCgYKAUoSARESFQHGX2MiW252La8Oj3HG1wNdGRkspQ0170'
+  }
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    // Procesa la respuesta y muestra los correos electrónicos recibidos
+    const emails = data.messages;
+    console.log('Correos electrónicos recibidos:');
+    emails.forEach(email => {
+      console.log(`- ${email.id}`);
+    });
+  })
+  .catch(error => {
+    console.error('Error al obtener los correos electrónicos:', error);
+  });
+
+
+https://gmail.googleapis.com/gmail/v1/users/{userId}/messages?q=from:newuser355@gmail.com
+
+  fetch('https://www.googleapis.com/gmail/v1/users/me/messages?q=from:newuser0355@gmail.com&orderBy=date', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer ya29.a0AXooCgtZGHX2T6XYS6qpYu-yS6M0IJ9IOyUDw8fYPHShUAvyBdUQCgG8y-w-AtJBnxq9IGYBq2B7i3quVdoSuBawsBVgRGYXofjcIaVNfgIomH1MXbKmpMluKwWyAS_sEjL24oniSUkn3NGs9W2w9ldEZdxolRk6n08aCgYKAeYSARESFQHGX2MilT7ACMUeNoY-KyTLnrL1ug0170'
+  }
+})
+  .then(response => response.json())
+  .then(data => {
+    // Procesa la respuesta y muestra los correos electrónicos recibidos
+    const emails = data.messages.slice(0,10);
+    console.log('Correos electrónicos recibidos:');
+    for(i = 0; i < 10; i++){
+      // Obtén el ID de cada mensaje
+      const messageId = emails[i].id;
+
+      // Realiza una nueva petición para obtener los detalles del mensaje
+      fetch(`https://www.googleapis.com/gmail/v1/users/me/messages/${messageId}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer ya29.a0AXooCgtZGHX2T6XYS6qpYu-yS6M0IJ9IOyUDw8fYPHShUAvyBdUQCgG8y-w-AtJBnxq9IGYBq2B7i3quVdoSuBawsBVgRGYXofjcIaVNfgIomH1MXbKmpMluKwWyAS_sEjL24oniSUkn3NGs9W2w9ldEZdxolRk6n08aCgYKAeYSARESFQHGX2MilT7ACMUeNoY-KyTLnrL1ug0170'
+        }
+      })
+        .then(response => response.json())
+        .then(messageData => {
+          // Aquí puedes trabajar con los detalles del mensaje obtenido
+          console.log(`- ID: ${messageData.id}`);
+          console.log(`  Remitente: ${messageData.payload.headers.find(header => header.name === 'From').value}`);
+          console.log(`  Asunto: ${messageData.payload.headers.find(header => header.name === 'Subject').value}`);
+          console.log(`  Cuerpo: ${messageData.snippet}`);
+        })
+        .catch(error => {
+          console.error('Error al obtener los detalles del mensaje:', error);
+        });
+    };
+  })
+  .catch(error => {
+    console.error('Error al obtener los correos electrónicos:', error);
+  });

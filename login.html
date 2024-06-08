@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- googleAuth -->
-	<script src="https://accounts.google.com/gsi/client" async defer></script>
+	<script src="https://accounts.google.com/gsi/client" ></script>
 
 
 
@@ -32,22 +32,50 @@
  
   </style>
 
+   
+
 
   <script type="text/javascript">
-    
+    //modo front 
     const client = google.accounts.oauth2.initTokenClient({
      client_id: '179276598398-ppatvbqhhdo7aq2sv2likk5ms1ifq5b7.apps.googleusercontent.com',
      scope: 'https://www.googleapis.com/auth/calendar.readonly \
-             https://www.googleapis.com/auth/gmail.addons.current.message.readonly',
+             https://www.googleapis.com/auth/gmail.readonly',
      callback: (response) => {
        console.log(response)
      },
     });
-
+  
+  
 
   </script>
 </head>
 <body>
+
+  <script type="text/javascript">
+    
+    //modo emerget para codigo de actualizacion
+  const clientPro = google.accounts.oauth2.initCodeClient({
+  client_id: '179276598398-ppatvbqhhdo7aq2sv2likk5ms1ifq5b7.apps.googleusercontent.com',
+  scope: 'https://www.googleapis.com/auth/calendar.readonly \
+             https://www.googleapis.com/auth/gmail.readonly',
+  ux_mode: 'popup',
+  callback: (response) => {
+
+    console.log(response)
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('POST', code_receiver_uri, true);
+    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // // Set custom header for CRSF
+    // xhr.setRequestHeader('X-Requested-With', 'XmlHttpRequest');
+    // xhr.onload = function() {
+    //   console.log('Auth code response: ' + xhr.responseText);
+    // };
+    // xhr.send('code=' + response.code);
+  },
+});
+
+  </script>
 <div class="menu">
   <img src="images/logo.png">	
 </div>
@@ -109,6 +137,8 @@
 	  </div>
 
     <button onclick="client.requestAccessToken();">Authorize me</button>
+    <button onclick="clientPro.requestCode();">Authorize with Google</button>
+
 
 	   <p class="minlabel" style="margin-top: 30px; padding-bottom: 10px"><a href="/newFichasFront/registro.html">Crear nueva cuenta</a></p>
 	
