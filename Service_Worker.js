@@ -1,6 +1,6 @@
 
 //asignar un nombre y versión al cache
-const CACHE_NAME = 'v8_cache_internetporfichas',
+const CACHE_NAME = 'v9_cache_internetporfichas',
   urlsToCache = [
     '.',
     'https://fonts.googleapis.com/css2?family=Lato&display=swap',
@@ -11,7 +11,6 @@ const CACHE_NAME = 'v8_cache_internetporfichas',
     './registro.html',
     './css/styles.css',
     './css/login.css',
-    './js/funcion.js',
     './js/LocalStorage.js',
     './js/login.js',
     './js/loginSingUp.js',
