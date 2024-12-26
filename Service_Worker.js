@@ -26,13 +26,6 @@ const CACHE_NAME = 'v9_cache_internetporfichas',
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
 self.addEventListener('install', e => {
  
-    console.log("vamos")
-    caches.keys().then(function(cacheNames) {
-        cacheNames.forEach(function(cacheName) {
-            caches.delete(cacheName); // Borra cada caché
-        });
-    });
-
   e.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
