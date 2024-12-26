@@ -62,6 +62,8 @@ self.addEventListener('fetch', e => {
   e.respondWith(
     caches.match(e.request)
       .then(res => {
+
+        console.log("cachica!!!!")
         if (res) {
           //recuperar del cache
           return res

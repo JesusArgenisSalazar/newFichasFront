@@ -248,6 +248,7 @@ boton.addEventListener("click",(event)=>{
 
 });
 
+//info de sobra asdasdasdsadsadsadasds
 btnClose.addEventListener("click",()=>{
 
     modal.style.display = "none";
