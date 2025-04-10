@@ -26,7 +26,7 @@ let btnRecarga = document.getElementById("btnRecarga");
 let modalRecarga = document.getElementById("modalRecarga");
 let btnCloseRecarga = document.getElementById("btnCloseRecarga");
 let botonReporte = document.getElementById("botonReporte");
-let montoRecarga = document.getElementById("montoRecarga");
+// let montoRecarga = document.getElementById("montoRecarga");
 let referenciaRecarga = document.getElementById("referenciaRecarga");
 let spinnerOperation = document.getElementById("spinnerOperation");
 let nombreUsuario = document.getElementById("nombreUsuario"); 
@@ -88,11 +88,11 @@ time.addEventListener("change",()=>{
 let selectTime = time.value;
 
 if(selectTime == "30 minutos"){
-  monto.innerHTML = "3 Bs"
+  monto.innerHTML = "4 Bs"
 }else if(selectTime == "1 hora"){
-  monto.innerHTML = "6 Bs"
+  monto.innerHTML = "8 Bs"
 }else if(selectTime == "24 horas"){
-  monto.innerHTML = "50 Bs"
+  monto.innerHTML = "75 Bs"
 }
 
 });
@@ -466,7 +466,7 @@ botonReporte.addEventListener("click",async (e)=>{
 
    event.preventDefault();
 
-   if(montoRecarga.value == "" || referenciaRecarga.value == ""){
+   if(referenciaRecarga.value == ""){
       alert("Debe llenar todos los campos")
    }else if(referenciaRecarga.value.length < 4){
       alert("La referencia debe tener al menos 4 dígitos");
@@ -494,7 +494,7 @@ botonReporte.addEventListener("click",async (e)=>{
          'Content-Type': 'application/json',
          'authorization': token
        },
-       body: JSON.stringify({ data: {referencia:referenciaRecarga.value,monto:montoRecarga.value.slice(0,-3) }})}).then((res)=> res.json())
+       body: JSON.stringify({ data: {referencia:referenciaRecarga.value }})}).then((res)=> res.json())
        .then((data)=>{
           
            console.log(data);
@@ -703,7 +703,6 @@ let resetForm = ()=>{
   time.value = "";
   metodoPago.value = "";
   referencia.value = ""
-  montoRecarga.value = ""
   referenciaRecarga.value = "";
 }
 
