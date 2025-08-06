@@ -88,9 +88,9 @@ time.addEventListener("change",()=>{
 let selectTime = time.value;
 
 if(selectTime == "30 minutos"){
-  monto.innerHTML = "4 Bs"
+  monto.innerHTML = "7 Bs"
 }else if(selectTime == "1 hora"){
-  monto.innerHTML = "8 Bs"
+  monto.innerHTML = "14 Bs"
 }else if(selectTime == "24 horas"){
   monto.innerHTML = "75 Bs"
 }
